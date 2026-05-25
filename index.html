@@ -61,7 +61,29 @@
     }
   </style>
 </head>
-<body class="antialiased selection:bg-brand-green selection:text-black">
+<body class="overflow-x-hidden antialiased selection:bg-brand-green selection:text-black">
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="fixed inset-0 bg-white z-[100] transform translate-x-full transition-transform duration-300 md:hidden flex flex-col h-[100dvh]">
+    <div class="h-16 px-4 flex items-center justify-between border-b border-gray-100 shrink-0">
+      <span class="text-black font-black text-2xl tracking-tighter">beendi<span class="font-normal text-[#8dc63f]">checkout</span></span>
+      <button id="mobile-menu-close" class="text-black p-2 bg-gray-100 rounded-full">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+    </div>
+    <div class="flex flex-col p-6 gap-6 text-lg font-medium overflow-y-auto">
+      <a href="index.html#checkout" class="mobile-link text-black hover:text-[#8dc63f]">Checkout</a>
+      <a href="taxas.html" class="mobile-link text-black hover:text-[#8dc63f]">Taxas</a>
+      <a href="ajuda.html" class="mobile-link text-black hover:text-[#8dc63f]">Central de ajuda</a>
+      <a href="somos-beendi.html" class="mobile-link text-black hover:text-[#8dc63f]">Sobre nós</a>
+      <a href="blog.html" class="mobile-link text-black hover:text-[#8dc63f]">Blog</a>
+    </div>
+    <div class="mt-auto p-6 flex flex-col gap-4 shrink-0 border-t border-gray-100">
+      <a class="w-full text-center text-sm text-black font-semibold h-12 flex items-center justify-center rounded-full border border-black hover:bg-black hover:text-white transition-all" href="#">Fazer login</a>
+      <a class="w-full text-center text-sm text-black bg-[#6BFF47] font-bold h-12 flex items-center justify-center rounded-full shadow-lg transition-all" href="#">Criar conta agora</a>
+    </div>
+  </div>
+
 
   <!-- TOP NAVBAR -->
   <div class="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8">
@@ -92,7 +114,7 @@
       </div>
       <!-- Mobile menu icon -->
       <div class="md:hidden">
-        <img alt="menu" width="23" height="16" class="cursor-pointer" src="ARQUIVOS/imgi_2_mobile.svg" onerror="this.style.display='none'"/>
+        <img id="mobile-menu-toggle" alt="menu" width="23" height="16" class="cursor-pointer" src="ARQUIVOS/imgi_2_mobile.svg" onerror="this.style.display='none'"/>
       </div>
     </div>
   </div>

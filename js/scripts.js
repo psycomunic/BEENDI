@@ -118,3 +118,25 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+  // New Mobile Menu Logic
+  const menuToggle = document.getElementById('mobile-menu-toggle');
+  const menuClose = document.getElementById('mobile-menu-close');
+  const mobileMenuNew = document.getElementById('mobile-menu');
+  
+  if (menuToggle && menuClose && mobileMenuNew) {
+    menuToggle.addEventListener('click', () => {
+      mobileMenuNew.classList.remove('translate-x-full');
+    });
+    menuClose.addEventListener('click', () => {
+      mobileMenuNew.classList.add('translate-x-full');
+    });
+    
+    // Close when clicking a link
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuNew.classList.add('translate-x-full');
+      });
+    });
+  }
+  
