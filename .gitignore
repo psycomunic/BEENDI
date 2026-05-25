@@ -1,0 +1,4 @@
+node_modules/
+.DS_Store
+build_pages.js
+fix_footer.js
