@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Beendi Checkout</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: '#6BFF47',
+              purple: '#7B2FFF',
+              light: '#ffffff',
+              card: '#f9fafb', // gray-50
+              cardhover: '#f3f4f6', // gray-100
+              border: '#e5e7eb', // gray-200
+              muted: '#4b5563', // gray-600
+              text: '#111827' // gray-900
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #111827; }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: max-content;
+      animation: marquee 30s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee-reverse {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+    .animate-marquee-reverse {
+      display: flex;
+      width: max-content;
+      animation: marquee-reverse 35s linear infinite;
+    }
+    .animate-marquee-reverse:hover {
+      animation-play-state: paused;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-brand-green selection:text-black">
+
+  <!-- TOP NAVBAR -->
+  <div class="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto h-16 backdrop-blur-md bg-white/80 border border-gray-200 shadow-[0_4px_30px_rgba(0,0,0,0.05)] rounded-full flex items-center justify-between px-6 transition-all duration-300">
+      <div class="flex items-center justify-between gap-10">
+        <a href="/" class="flex items-center gap-2">
+          <!-- Logo Beendi Placeholder -->
+          <svg class="w-8 h-8 shrink-0" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="beendiGradHead" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#a3e635" />
+                <stop offset="100%" stop-color="#16a34a" />
+              </linearGradient>
+            </defs>
+            <path d="M 28 15 L 28 70 A 26 26 0 0 0 80 70 A 26 26 0 0 0 40 48" stroke="url(#beendiGradHead)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="text-black font-black text-2xl tracking-tighter">beendi<span class="font-normal text-[#8dc63f]">checkout</span></span>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a class="text-sm text-black font-medium hover:opacity-70 transition-opacity" href="#checkout">Checkout</a>
+          <a class="text-sm text-black font-medium hover:opacity-70 transition-opacity" href="taxas.html">Taxas</a>
+          <a class="text-sm text-black font-medium hover:opacity-70 transition-opacity" href="ajuda.html">Central de ajuda</a>
+        </div>
+      </div>
+      <div class="hidden md:flex items-center gap-4">
+        <a class="text-sm text-black font-semibold min-w-[122px] h-9 flex items-center justify-center rounded-full border border-black hover:bg-black hover:text-white transition-all duration-300" href="#">Fazer login</a>
+        <a class="text-sm text-black bg-brand-green font-bold min-w-[164px] h-9 flex items-center justify-center rounded-full border border-transparent hover:brightness-110 shadow-[0_0_15px_-3px_rgba(107,255,71,0.5)] transition-all duration-300" href="#">Criar conta agora</a>
+      </div>
+      <!-- Mobile menu icon -->
+      <div class="md:hidden">
+        <img alt="menu" width="23" height="16" class="cursor-pointer" src="ARQUIVOS/imgi_2_mobile.svg" onerror="this.style.display='none'"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <div id="home" class="relative overflow-hidden bg-[#dcfce7] border-b border-[#bbf7d0]">
+    <!-- Gradient sutil -->
+    <div class="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative pt-32 pb-0 md:pb-0 min-h-[600px] flex items-center">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 w-full">
+        
+        <!-- Left Text -->
+        <div class="md:col-span-6 flex flex-col justify-center z-20 pb-40 md:pb-32 pt-8 md:pt-0">
+          <p class="text-sm text-black font-bold text-center md:text-left mb-4 tracking-wider uppercase">Plataforma de pagamento transparente</p>
+          <h1 class="text-3xl md:text-5xl lg:text-6xl font-black text-black text-center md:text-left mb-6 leading-tight">Aumente as vendas do seu e-commerce através da melhor experiência online!</h1>
+          <p class="font-medium text-base md:text-lg text-black/80 text-center md:text-left mb-10">A Beendi foi criada para lojistas que querem aumentar a conversão de vendas com um checkout inteligente, personalizado e sem atrito.</p>
+          <div class="flex gap-4 flex-col md:flex-row">
+            <a class="w-full text-base text-black bg-brand-green border border-brand-green md:max-w-[186px] h-12 flex items-center justify-center rounded font-bold hover:brightness-110 transition-all duration-300 shadow-[0_4px_20px_-5px_rgba(107,255,71,0.6)]" href="#">Criar conta grátis</a>
+            <button class="w-full text-base text-black border border-black md:max-w-[270px] h-12 flex items-center justify-center rounded font-medium hover:bg-black/5 transition-all duration-300">Fale com a equipe de vendas</button>
+          </div>
+        </div>
+
+        <!-- Right Images -->
+        <div class="md:col-span-6 relative mt-12 md:mt-0 flex justify-center items-end">
+          <div class="relative w-full flex justify-center items-end">
+            <!-- Hero Principal -->
+            <img alt="Hero Image" class="w-full h-auto max-h-[650px] object-contain object-bottom z-10 drop-shadow-2xl" src="ARQUIVOS/sem-fundo.png" onerror="this.src='https://placehold.co/800x600/f0f0f0/333?text=Hero+Image'"/>
+            
+            <!-- Cards Flutuantes Movidos e Redimensionados -->
+            <img alt="Card de saldo" class="absolute top-1/4 -left-4 md:-left-12 w-48 xl:w-64 z-20 hidden lg:block drop-shadow-xl" src="ARQUIVOS/imgi_11_card-saldo.svg" onerror="this.style.display='none'"/>
+            <img alt="Card de saque" class="absolute bottom-20 -right-4 md:-right-8 w-40 xl:w-48 z-20 hidden lg:block drop-shadow-xl" src="ARQUIVOS/imgi_12_saque-card.svg" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MARQUEE CARROSSEL OVERLAYING -->
+    <div class="absolute bottom-0 left-0 w-full z-30 pb-6 pointer-events-none">
+      <p class="text-sm font-semibold text-black/80 text-center md:text-left md:ml-12 lg:ml-24 mb-4">Nossa solução é perfeita para você que trabalha com:</p>
+      <div class="flex overflow-hidden">
+        <div class="animate-marquee gap-4 flex pl-4 pointer-events-auto">
+          <!-- original set -->
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_3_1.svg" width="20" onerror="this.style.display='none'"/> Cursos Online</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_4_2.svg" width="20" onerror="this.style.display='none'"/> Suplementos</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_5_3.svg" width="20" onerror="this.style.display='none'"/> Produtos Físicos</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_6_4.svg" width="20" onerror="this.style.display='none'"/> Produtos Digitais</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_7_5.svg" width="20" onerror="this.style.display='none'"/> Assinatura</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_8_6.svg" width="20" onerror="this.style.display='none'"/> E-commerces</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_9_7.svg" width="20" onerror="this.style.display='none'"/> Dropshipping</div>
+          
+          <!-- duplicate set 2 -->
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_3_1.svg" width="20" onerror="this.style.display='none'"/> Cursos Online</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_4_2.svg" width="20" onerror="this.style.display='none'"/> Suplementos</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_5_3.svg" width="20" onerror="this.style.display='none'"/> Produtos Físicos</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_6_4.svg" width="20" onerror="this.style.display='none'"/> Produtos Digitais</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_7_5.svg" width="20" onerror="this.style.display='none'"/> Assinatura</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_8_6.svg" width="20" onerror="this.style.display='none'"/> E-commerces</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_9_7.svg" width="20" onerror="this.style.display='none'"/> Dropshipping</div>
+
+          <!-- duplicate set 3 -->
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_3_1.svg" width="20" onerror="this.style.display='none'"/> Cursos Online</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_4_2.svg" width="20" onerror="this.style.display='none'"/> Suplementos</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_5_3.svg" width="20" onerror="this.style.display='none'"/> Produtos Físicos</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_6_4.svg" width="20" onerror="this.style.display='none'"/> Produtos Digitais</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_7_5.svg" width="20" onerror="this.style.display='none'"/> Assinatura</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_8_6.svg" width="20" onerror="this.style.display='none'"/> E-commerces</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_9_7.svg" width="20" onerror="this.style.display='none'"/> Dropshipping</div>
+
+          <!-- duplicate set 4 -->
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_3_1.svg" width="20" onerror="this.style.display='none'"/> Cursos Online</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_4_2.svg" width="20" onerror="this.style.display='none'"/> Suplementos</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_5_3.svg" width="20" onerror="this.style.display='none'"/> Produtos Físicos</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_6_4.svg" width="20" onerror="this.style.display='none'"/> Produtos Digitais</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_7_5.svg" width="20" onerror="this.style.display='none'"/> Assinatura</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_8_6.svg" width="20" onerror="this.style.display='none'"/> E-commerces</div>
+          <div class="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-white/50 text-black px-6 py-4 rounded-md font-semibold text-sm whitespace-nowrap shadow-sm"><img src="ARQUIVOS/imgi_9_7.svg" width="20" onerror="this.style.display='none'"/> Dropshipping</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOCIAL PROOF STRIP -->
+  <div class="relative border-b border-brand-border bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        <div class="flex items-start gap-4">
+          <div class="min-w-10 h-10 bg-brand-card rounded flex items-center justify-center">
+            <img alt="" width="20" height="20" src="ARQUIVOS/imgi_15_player.svg" onerror="this.style.display='none'"/>
+          </div>
+          <div class="flex flex-col gap-1">
+            <p class="text-brand-text font-semibold text-base">Os maiores players</p>
+            <p class="font-normal text-sm text-brand-muted">do mercado <strong class="text-brand-text">confiam</strong> na nossa solução</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start gap-4">
+          <div class="min-w-10 h-10 bg-brand-card rounded flex items-center justify-center">
+            <img alt="" width="20" height="20" src="ARQUIVOS/imgi_16_clientes.svg" onerror="this.style.display='none'"/>
+          </div>
+          <div class="flex flex-col gap-1">
+            <p class="text-brand-text font-semibold text-base">100% dos nossos clientes</p>
+            <p class="font-normal text-sm text-brand-muted">solucionaram problemas com nosso <strong class="text-brand-text">suporte</strong></p>
+          </div>
+        </div>
+        
+        <div class="flex items-start gap-4">
+          <div class="min-w-10 h-10 bg-brand-card rounded flex items-center justify-center">
+            <img alt="" width="20" height="20" src="ARQUIVOS/imgi_17_antifraude.svg" onerror="this.style.display='none'"/>
+          </div>
+          <div class="flex flex-col gap-1">
+            <p class="text-brand-text font-semibold text-base">99,3% dos clientes</p>
+            <p class="font-normal text-sm text-brand-muted">evitaram fraudes com nosso <strong class="text-brand-text">Anti-Fraude (IA+)</strong></p>
+          </div>
+        </div>
+        
+        <div class="flex items-start gap-4">
+          <div class="min-w-10 h-10 bg-brand-card rounded flex items-center justify-center">
+            <img alt="" width="20" height="20" src="ARQUIVOS/imgi_18_resultado.svg" onerror="this.style.display='none'"/>
+          </div>
+          <div class="flex flex-col gap-1">
+            <p class="text-brand-text font-semibold text-base">Resultados comprovados</p>
+            <p class="font-normal text-sm text-brand-muted"><strong class="text-brand-text">+27% de crescimento</strong> no faturamento</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECKOUT VS DASHBOARD -->
+  <div id="checkout" class="border-b border-brand-border bg-white pt-16 md:pt-24 pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col gap-4 w-full md:max-w-3xl mx-auto mb-12 text-center">
+        <span class="text-xs bg-[rgba(107,255,71,0.2)] text-[#2d7d19] px-4 py-2 rounded-full font-bold w-fit mx-auto border border-[rgba(107,255,71,0.5)]">CONHEÇA A BEENDI</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-brand-text">Com a Beendi, o checkout não é o fim, é o começo do seu crescimento</h2>
+        <p class="font-normal text-base md:text-lg text-brand-muted">Transformamos seu checkout no maior diferencial da sua loja. Aumentamos suas vendas, elevamos o ticket médio e tornamos sua operação profissional.</p>
+      </div>
+
+      <!-- Toggle Buttons -->
+      <div class="border border-brand-border rounded-full p-2 w-full md:max-w-xl mx-auto flex items-center mb-10 bg-white shadow-sm">
+        <button id="btn-checkout" onclick="toggleView('checkout')" class="w-full flex h-12 justify-center items-center gap-2 font-bold rounded-full bg-brand-green text-black shadow-[0_2px_13px_-4px_rgba(107,255,71,0.4)] transition-all">
+          <img src="ARQUIVOS/imgi_19_checkout.svg" width="20" onerror="this.style.display='none'"/> Checkout Customizado
+        </button>
+        <button id="btn-dashboard" onclick="toggleView('dashboard')" class="w-full flex h-12 justify-center items-center gap-2 font-semibold rounded-full text-brand-muted hover:bg-gray-50 transition-all">
+          <img src="ARQUIVOS/imgi_20_dashboard.svg" width="20" onerror="this.style.display='none'"/> Dashboard Inteligente
+        </button>
+      </div>
+
+      <!-- Checkout Preview Area -->
+      <div id="checkout-area" class="border border-brand-border rounded-2xl overflow-hidden flex flex-col md:flex-row bg-white shadow-sm transition-opacity duration-300">
+        <!-- Sidebar Selectors -->
+        <div class="flex w-full md:w-64 flex-col justify-start md:justify-center items-center border-r border-brand-border bg-white py-6">
+          <p class="text-sm text-brand-text font-bold mb-6">Exemplos por Nicho:</p>
+          <div class="flex flex-row md:flex-col w-full overflow-x-auto scrollbar-hide">
+            <button onclick="changeCheckout(this, 'saude')" class="checkout-btn border-b-4 md:border-b-0 md:border-r-4 border-brand-green bg-[rgba(107,255,71,0.1)] w-full py-4 px-6 text-brand-text font-semibold text-left whitespace-nowrap">Saúde & Suplementos</button>
+            <button onclick="changeCheckout(this, 'moda')" class="checkout-btn border-b-4 md:border-b-0 md:border-r-4 border-transparent hover:bg-gray-50 w-full py-4 px-6 text-brand-muted font-semibold text-left transition-colors whitespace-nowrap">Moda & Vestuário</button>
+            <button onclick="changeCheckout(this, 'cursos')" class="checkout-btn border-b-4 md:border-b-0 md:border-r-4 border-transparent hover:bg-gray-50 w-full py-4 px-6 text-brand-muted font-semibold text-left transition-colors whitespace-nowrap">Cursos & E-books</button>
+            <button onclick="changeCheckout(this, 'beleza')" class="checkout-btn border-b-4 md:border-b-0 md:border-r-4 border-transparent hover:bg-gray-50 w-full py-4 px-6 text-brand-muted font-semibold text-left transition-colors whitespace-nowrap">Beleza & Cosméticos</button>
+            <button onclick="changeCheckout(this, 'tech')" class="checkout-btn border-b-4 md:border-b-0 md:border-r-4 border-transparent hover:bg-gray-50 w-full py-4 px-6 text-brand-muted font-semibold text-left transition-colors whitespace-nowrap">Eletrônicos & Tech</button>
+          </div>
+        </div>
+        <!-- Main Preview Image -->
+        <!-- Main Preview HTML Mockup -->
+        <div class="flex-1 flex flex-col items-center justify-center p-4 md:p-8 bg-gray-50 relative overflow-hidden">
+          <!-- The Checkout Window -->
+          <div id="checkout-mockup" class="w-full max-w-2xl bg-white rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] overflow-hidden flex flex-col transition-all duration-500 border border-gray-100 transform hover:scale-[1.02]">
+            <!-- Header -->
+            <div id="mockup-header" class="w-full py-4 px-6 flex justify-between items-center transition-colors duration-500" style="background-color: #2d7d19;">
+              <div class="flex items-center gap-2 text-white">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8V7a4 4 0 00-8 0v4h8z"></path></svg>
+                <span class="font-bold text-sm tracking-wide">PAGAMENTO SEGURO</span>
+              </div>
+              <div id="mockup-badge" class="px-2 py-0.5 bg-white/20 text-white rounded text-xs font-bold uppercase transition-all">SAÚDE</div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row w-full">
+              <!-- Form Side -->
+              <div class="flex-1 p-6 border-b sm:border-b-0 sm:border-r border-gray-100">
+                <h3 class="text-base font-bold text-gray-800 mb-4 flex items-center gap-2">
+                   <span id="mockup-step-bg" class="w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold transition-colors duration-500" style="background-color: #2d7d19;">1</span> 
+                   Dados Pessoais
+                </h3>
+                <div class="space-y-3">
+                  <div>
+                    <div class="w-full h-10 border border-gray-200 rounded-md bg-gray-50 px-3 flex items-center"><span class="text-xs text-gray-400">Nome completo</span></div>
+                  </div>
+                  <div>
+                    <div class="w-full h-10 border border-gray-200 rounded-md bg-gray-50 px-3 flex items-center"><span class="text-xs text-gray-400">E-mail</span></div>
+                  </div>
+                  <div class="grid grid-cols-2 gap-3">
+                    <div class="w-full h-10 border border-gray-200 rounded-md bg-gray-50 px-3 flex items-center"><span class="text-xs text-gray-400">CPF</span></div>
+                    <div class="w-full h-10 border border-gray-200 rounded-md bg-gray-50 px-3 flex items-center"><span class="text-xs text-gray-400">Celular</span></div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Order Summary Side -->
+              <div class="w-full sm:w-[260px] p-6 bg-gray-50 flex flex-col">
+                <h3 class="text-sm font-bold text-gray-800 mb-4 uppercase">Resumo do Pedido</h3>
+                <div class="flex items-center gap-3 mb-6">
+                  <div class="w-14 h-14 bg-white border border-gray-200 rounded flex items-center justify-center overflow-hidden flex-shrink-0">
+                     <img id="mockup-img" src="ARQUIVOS/imgi_14_image.webp" class="w-full h-full object-cover transition-opacity duration-300" onerror="this.src='https://placehold.co/100x100/f0f0f0/333?text=Niche'"/>
+                  </div>
+                  <div class="flex-1">
+                    <p id="mockup-title" class="text-xs font-semibold text-gray-800 leading-tight transition-all">Whey Protein Isolado</p>
+                    <p id="mockup-price" class="text-sm font-bold text-gray-600 mt-1 transition-all">R$ 149,90</p>
+                  </div>
+                </div>
+                
+                <div class="mt-auto border-t border-gray-200 pt-4">
+                   <div class="flex justify-between items-center mb-4">
+                     <span class="text-sm font-bold text-gray-500">Total</span>
+                     <span id="mockup-total" class="text-lg font-black text-gray-900 transition-all">R$ 149,90</span>
+                   </div>
+                   <button id="mockup-btn" class="w-full h-12 rounded-md text-white font-bold text-sm shadow-md transition-all duration-500 flex items-center justify-center gap-2 hover:brightness-110" style="background-color: #2d7d19;">
+                     FINALIZAR COMPRA
+                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                   </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard Preview Area -->
+      <div id="dashboard-area" class="hidden rounded-2xl overflow-hidden flex flex-col w-full shadow-2xl transition-opacity duration-300 border border-gray-200 bg-white relative mx-auto md:max-w-5xl">
+        <style>
+          .dash-animate { stroke-dasharray: 500; stroke-dashoffset: 500; animation: dash 2s ease-out forwards; }
+          .dash-animate-slow { stroke-dasharray: 500; stroke-dashoffset: 500; animation: dash 2.5s ease-out forwards; }
+          @keyframes dash { to { stroke-dashoffset: 0; } }
+          .animate-fill-bar { animation: fillBar 1s ease-out forwards; transform-origin: left; }
+          @keyframes fillBar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+        </style>
+        
+        <!-- Browser header -->
+        <div class="h-12 bg-[#F3F4F6] border-b border-gray-200 flex items-center px-4 relative">
+          <div class="flex gap-2">
+            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+          </div>
+          <div class="absolute left-1/2 -translate-x-1/2 bg-white px-4 py-1 rounded text-xs text-gray-500 shadow-sm border border-gray-200">beendi.com.br/dashboard</div>
+        </div>
+
+        <!-- Dashboard Top Bar -->
+        <div class="h-14 bg-black flex items-center justify-between px-6 border-b border-gray-800">
+          <div class="flex items-center gap-2">
+            <svg class="w-6 h-6 shrink-0" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="beendiGradDash" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#a3e635" />
+                  <stop offset="100%" stop-color="#16a34a" />
+                </linearGradient>
+              </defs>
+              <path d="M 28 15 L 28 70 A 26 26 0 0 0 80 70 A 26 26 0 0 0 40 48" stroke="url(#beendiGradDash)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="text-white font-bold text-xl tracking-tighter">beendi<span class="font-normal text-[#8dc63f]">checkout</span></div>
+          </div>
+          <div class="flex items-center gap-4">
+             <div class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-white"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg></div>
+             <div class="w-8 h-8 rounded-full bg-brand-green text-black flex items-center justify-center font-bold text-sm">A</div>
+          </div>
+        </div>
+        
+        <!-- Dashboard Content -->
+        <div class="flex flex-col md:flex-row h-auto md:h-[600px] bg-[#f8f9fa] w-full">
+          <!-- Sidebar -->
+          <div class="hidden md:flex w-16 border-r border-gray-200 flex-col items-center py-4 gap-2 bg-white z-10">
+            <div class="w-10 h-10 rounded-xl hover:bg-gray-100 flex items-center justify-center cursor-pointer transition-colors"><svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg></div>
+            
+            <div class="w-10 h-10 rounded-xl bg-[rgba(107,255,71,0.2)] flex items-center justify-center cursor-pointer relative"><div class="absolute left-0 top-1/4 bottom-1/4 w-1 bg-[#2d7d19] rounded-r"></div><svg class="w-5 h-5 text-[#2d7d19]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg></div>
+            
+            <div class="w-10 h-10 rounded-xl hover:bg-gray-100 flex items-center justify-center cursor-pointer transition-colors"><svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg></div>
+            <div class="w-10 h-10 rounded-xl hover:bg-gray-100 flex items-center justify-center cursor-pointer transition-colors"><svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg></div>
+            <div class="w-10 h-10 rounded-xl hover:bg-gray-100 flex items-center justify-center cursor-pointer transition-colors"><svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div>
+            <div class="w-10 h-10 rounded-xl hover:bg-gray-100 flex items-center justify-center cursor-pointer transition-colors mt-auto"><svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg></div>
+          </div>
+          
+          <!-- Main Area -->
+          <div class="flex-1 flex flex-col p-4 md:p-8 overflow-y-auto w-full max-w-full">
+             <div class="flex flex-col gap-4 mb-6">
+               <h3 class="text-2xl font-bold text-gray-800 text-left">Dashboard</h3>
+               
+               <!-- Date Filter -->
+               <div class="flex flex-nowrap items-center gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                  <button class="px-4 py-2 text-sm font-semibold border border-gray-200 bg-white rounded-lg text-gray-600 hover:bg-gray-50 whitespace-nowrap shadow-sm">Ontem</button>
+                  <button class="px-4 py-2 text-sm font-semibold border border-gray-200 bg-white rounded-lg text-gray-600 hover:bg-gray-50 whitespace-nowrap shadow-sm">Hoje</button>
+                  <button class="px-4 py-2 text-sm font-semibold border border-gray-200 bg-white rounded-lg text-gray-600 hover:bg-gray-50 whitespace-nowrap shadow-sm">Mês atual</button>
+                  <button class="px-4 py-2 text-sm font-bold border border-brand-green bg-[rgba(107,255,71,0.15)] text-[#2d7d19] rounded-lg whitespace-nowrap shadow-sm">Últimos 30 dias</button>
+                  <button class="px-4 py-2 text-sm font-semibold border border-gray-200 bg-white rounded-lg text-gray-600 hover:bg-gray-50 whitespace-nowrap shadow-sm">Último mês</button>
+                  <button class="px-4 py-2 text-sm font-semibold border border-gray-200 bg-white rounded-lg text-gray-600 hover:bg-gray-50 flex items-center gap-2 whitespace-nowrap shadow-sm">
+                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    08/04/2026
+                  </button>
+               </div>
+             </div>
+
+             <!-- Charts Row -->
+             <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-6">
+                
+                <!-- Chart 1: Vendas -->
+                <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm relative overflow-hidden group">
+                   <div class="flex items-center gap-1 mb-1 text-left">
+                     <p class="text-sm text-gray-500 font-semibold">Vendas</p>
+                     <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                   </div>
+                   <p class="text-3xl font-bold text-gray-800 mb-2 text-left">R$ 1.494.062,40</p>
+                   <div class="flex items-center gap-2 mb-6">
+                     <span class="text-xs font-semibold bg-blue-100 text-blue-700 px-2 py-0.5 rounded">5.136 venda(s) realizada(s)</span>
+                   </div>
+                   
+                   <div class="w-full h-40 relative">
+                      <!-- Decorative grid lines -->
+                      <div class="absolute inset-0 flex flex-col justify-between">
+                         <div class="flex items-center w-full"><span class="text-[10px] text-gray-400 w-8 text-left">100K</span><div class="border-b border-gray-100 border-dashed flex-1 h-0"></div></div>
+                         <div class="flex items-center w-full"><span class="text-[10px] text-gray-400 w-8 text-left">50K</span><div class="border-b border-gray-100 border-dashed flex-1 h-0"></div></div>
+                         <div class="flex items-center w-full"><span class="text-[10px] text-gray-400 w-8 text-left">10K</span><div class="border-b border-gray-100 border-dashed flex-1 h-0"></div></div>
+                         <div class="flex items-center w-full"><span class="text-[10px] text-gray-400 w-8 text-left">0</span><div class="border-b border-gray-100 border-dashed flex-1 h-0"></div></div>
+                      </div>
+                      <div class="absolute bottom-0 left-8 right-0 flex justify-between text-[9px] text-gray-400 translate-y-4">
+                        <span>00 AM - 08 AM</span>
+                        <span>08 AM - 12 AM</span>
+                        <span>12 PM - 08 PM</span>
+                        <span>08 PM - 00 PM</span>
+                      </div>
+                      
+                      <!-- SVG Chart -->
+                      <div class="absolute inset-0 left-8 pt-2">
+                        <svg class="w-full h-full text-brand-green overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 100">
+                           <defs>
+                              <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                 <stop offset="0%" style="stop-color:rgb(107,255,71);stop-opacity:0.4" />
+                                 <stop offset="100%" style="stop-color:rgb(107,255,71);stop-opacity:0" />
+                              </linearGradient>
+                           </defs>
+                           <polygon fill="url(#grad1)" points="0,100 0,80 15,30 30,30 45,60 60,70 70,30 85,30 100,50 100,100" class="opacity-0 group-hover:opacity-100 transition-opacity duration-1000"/>
+                           <path d="M0,80 L15,30 L30,30 L45,60 L60,70 L70,30 L85,30 L100,50" fill="none" stroke="#2d7d19" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="dash-animate"/>
+                           
+                           <!-- Points -->
+                           <circle cx="0" cy="80" r="3" fill="white" stroke="#2d7d19" stroke-width="2" />
+                           <circle cx="15" cy="30" r="3" fill="white" stroke="#2d7d19" stroke-width="2" />
+                           <circle cx="30" cy="30" r="3" fill="white" stroke="#2d7d19" stroke-width="2" />
+                           <circle cx="45" cy="60" r="3" fill="white" stroke="#2d7d19" stroke-width="2" />
+                           <circle cx="60" cy="70" r="3" fill="white" stroke="#2d7d19" stroke-width="2" />
+                           <circle cx="70" cy="30" r="3" fill="white" stroke="#2d7d19" stroke-width="2" />
+                           <circle cx="85" cy="30" r="3" fill="white" stroke="#2d7d19" stroke-width="2" />
+                           <circle cx="100" cy="50" r="3" fill="white" stroke="#2d7d19" stroke-width="2" />
+                           
+                           <!-- Hover Tooltip Simulator -->
+                           <g class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                             <line x1="45" y1="60" x2="45" y2="100" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2,2"/>
+                             <circle cx="45" cy="60" r="4" fill="#2d7d19" />
+                             <rect x="25" y="5" width="40" height="25" rx="3" fill="white" stroke="#e2e8f0" stroke-width="1" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.1))"/>
+                             <text x="45" y="14" font-size="5" font-family="sans-serif" font-weight="bold" fill="#333" text-anchor="middle">184 venda(s)</text>
+                             <text x="45" y="21" font-size="4" font-family="sans-serif" fill="#666" text-anchor="middle">R$ 53.525,60</text>
+                           </g>
+                        </svg>
+                      </div>
+                   </div>
+                </div>
+
+                <!-- Chart 2: Pedidos -->
+                <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm relative overflow-hidden group">
+                   <div class="flex items-center gap-1 mb-1 text-left">
+                     <p class="text-sm text-gray-500 font-semibold">Pedidos</p>
+                     <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                   </div>
+                   <p class="text-3xl font-bold text-gray-800 mb-2 text-left">1.641.839,60</p>
+                   <div class="flex items-center gap-2 mb-6">
+                     <span class="text-xs font-semibold bg-blue-100 text-blue-700 px-2 py-0.5 rounded">5.644 pedido(s) realizado(s)</span>
+                   </div>
+                   
+                   <div class="w-full h-40 relative">
+                      <div class="absolute inset-0 flex flex-col justify-between">
+                         <div class="flex items-center w-full"><span class="text-[10px] text-gray-400 w-8 text-left">100K</span><div class="border-b border-gray-100 border-dashed flex-1 h-0"></div></div>
+                         <div class="flex items-center w-full"><span class="text-[10px] text-gray-400 w-8 text-left">50K</span><div class="border-b border-gray-100 border-dashed flex-1 h-0"></div></div>
+                         <div class="flex items-center w-full"><span class="text-[10px] text-gray-400 w-8 text-left">10K</span><div class="border-b border-gray-100 border-dashed flex-1 h-0"></div></div>
+                         <div class="flex items-center w-full"><span class="text-[10px] text-gray-400 w-8 text-left">0</span><div class="border-b border-gray-100 border-dashed flex-1 h-0"></div></div>
+                      </div>
+                      <div class="absolute bottom-0 left-8 right-0 flex justify-between text-[9px] text-gray-400 translate-y-4">
+                        <span>00 AM - 08 AM</span>
+                        <span>08 AM - 12 AM</span>
+                        <span>12 PM - 08 PM</span>
+                        <span>08 PM - 00 PM</span>
+                      </div>
+                      
+                      <div class="absolute inset-0 left-8 pt-2">
+                        <svg class="w-full h-full text-blue-500 overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 100">
+                           <defs>
+                              <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                 <stop offset="0%" style="stop-color:rgb(59,130,246);stop-opacity:0.2" />
+                                 <stop offset="100%" style="stop-color:rgb(59,130,246);stop-opacity:0" />
+                              </linearGradient>
+                           </defs>
+                           <polygon fill="url(#grad2)" points="0,100 0,90 15,30 30,30 45,60 60,70 70,30 85,30 100,50 100,100" class="opacity-0 group-hover:opacity-100 transition-opacity duration-1000"/>
+                           <path d="M0,90 L15,30 L30,30 L45,60 L60,70 L70,30 L85,30 L100,50" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="dash-animate-slow"/>
+                           
+                           <!-- Points -->
+                           <circle cx="0" cy="90" r="3" fill="white" stroke="#3b82f6" stroke-width="2" />
+                           <circle cx="15" cy="30" r="3" fill="white" stroke="#3b82f6" stroke-width="2" />
+                           <circle cx="30" cy="30" r="3" fill="white" stroke="#3b82f6" stroke-width="2" />
+                           <circle cx="45" cy="60" r="3" fill="white" stroke="#3b82f6" stroke-width="2" />
+                           <circle cx="60" cy="70" r="3" fill="white" stroke="#3b82f6" stroke-width="2" />
+                           <circle cx="70" cy="30" r="3" fill="white" stroke="#3b82f6" stroke-width="2" />
+                           <circle cx="85" cy="30" r="3" fill="white" stroke="#3b82f6" stroke-width="2" />
+                           <circle cx="100" cy="50" r="3" fill="white" stroke="#3b82f6" stroke-width="2" />
+                        </svg>
+                      </div>
+                   </div>
+                </div>
+
+             </div>
+
+             <!-- Cards row -->
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+                <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:translate-y-[-2px] transition-transform">
+                   <div class="flex items-center justify-between mb-2">
+                     <p class="text-xs text-gray-500 font-bold">Conversão de Cartão</p>
+                     <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                   </div>
+                   <p class="text-2xl font-bold text-gray-800 mb-1 text-left">98%</p>
+                   <p class="text-[10px] font-semibold text-blue-500 bg-blue-50 px-2 py-0.5 rounded w-fit mb-3">3.104 pedido(s) gerados(s)</p>
+                   <div class="w-full bg-gray-100 rounded-full h-1.5 mt-auto overflow-hidden">
+                      <div class="bg-brand-green h-1.5 rounded-full w-[98%] animate-fill-bar"></div>
+                   </div>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:translate-y-[-2px] transition-transform">
+                   <div class="flex items-center justify-between mb-2">
+                     <p class="text-xs text-gray-500 font-bold">Conversão de Pix</p>
+                     <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                   </div>
+                   <p class="text-2xl font-bold text-gray-800 mb-1 text-left">89%</p>
+                   <p class="text-[10px] font-semibold text-blue-500 bg-blue-50 px-2 py-0.5 rounded w-fit mb-3">2.427 pedido(s) gerados(s)</p>
+                   <div class="w-full bg-gray-100 rounded-full h-1.5 mt-auto overflow-hidden">
+                      <div class="bg-blue-500 h-1.5 rounded-full w-[89%] animate-fill-bar" style="animation-delay: 0.2s"></div>
+                   </div>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:translate-y-[-2px] transition-transform">
+                   <div class="flex items-center justify-between mb-2">
+                     <p class="text-xs text-gray-500 font-bold">Conversão de Boleto</p>
+                     <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                   </div>
+                   <p class="text-2xl font-bold text-gray-800 mb-1 text-left">80%</p>
+                   <p class="text-[10px] font-semibold text-blue-500 bg-blue-50 px-2 py-0.5 rounded w-fit mb-3">113 pedido(s) gerados(s)</p>
+                   <div class="w-full bg-gray-100 rounded-full h-1.5 mt-auto overflow-hidden">
+                      <div class="bg-purple-500 h-1.5 rounded-full w-[80%] animate-fill-bar" style="animation-delay: 0.4s"></div>
+                   </div>
+                </div>
+             </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RECURSOS INTELIGENTES (FEATURES) -->
+  <div id="funcionalidades" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-24 pb-16 bg-white">
+    <div class="flex flex-col gap-4 w-full md:max-w-3xl mx-auto mb-12 text-center">
+      <span class="text-xs bg-[rgba(107,255,71,0.2)] text-[#2d7d19] px-4 py-2 rounded-full font-bold w-fit mx-auto border border-[rgba(107,255,71,0.5)]">RECURSOS INTELIGENTES</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-text">Venda até 30% mais com as ferramentas certas</h2>
+      <p class="font-normal text-base md:text-lg text-brand-muted">Soluções nativas para aumentar ticket médio, recuperar carrinhos e vender mais.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+      
+      <!-- Order Bump -->
+      <div class="md:col-span-6 border border-brand-border rounded-xl bg-white p-6 md:p-8">
+        <img alt="Order Bump" class="w-full h-auto max-h-[295px] mb-6 rounded-lg object-contain" src="ARQUIVOS/imgi_28_image.webp" onerror="this.src='https://placehold.co/600x350/f0f0f0/444'"/>
+        <h3 class="text-xl font-bold text-brand-text mb-2">Aumente o ticket médio com Order Bump</h3>
+        <p class="text-base font-normal text-brand-muted">Ofereça produtos complementares diretamente no checkout com apenas um clique.</p>
+      </div>
+
+      <!-- Upsell -->
+      <div class="md:col-span-6 border border-brand-border rounded-xl bg-white p-6 md:p-8">
+        <img alt="Upsell" class="w-full h-auto max-h-[295px] mb-6 rounded-lg object-contain" src="ARQUIVOS/imgi_29_image.webp" onerror="this.src='https://placehold.co/600x350/f0f0f0/444'"/>
+        <h3 class="text-xl font-bold text-brand-text mb-2">Venda novamente após o pagamento</h3>
+        <p class="text-base font-normal text-brand-muted">Ofereça um upsell na página de obrigado. O cliente compra sem precisar digitar os dados do cartão de novo.</p>
+      </div>
+
+      <!-- Anti Fraude -->
+      <div class="md:col-span-4 border border-brand-border rounded-xl bg-white p-6 md:p-8">
+        <img alt="Anti-Fraude" class="w-full h-auto max-h-[295px] mb-6 rounded-lg object-contain" src="ARQUIVOS/imgi_30_image.png" onerror="this.src='https://placehold.co/400x300/f0f0f0/444'"/>
+        <h3 class="text-lg font-bold text-brand-text mb-2">Anti-Fraude IA+</h3>
+        <p class="text-sm font-normal text-brand-muted">Nosso motor detecta riscos em milissegundos e aprova mais vendas legítimas.</p>
+      </div>
+
+      <!-- Tracking -->
+      <div class="md:col-span-4 border border-brand-border rounded-xl bg-white p-6 md:p-8">
+        <img alt="Tracking" class="w-full h-auto max-h-[295px] mb-6 rounded-lg object-contain" src="ARQUIVOS/imgi_31_image.png" onerror="this.src='https://placehold.co/400x300/f0f0f0/444'"/>
+        <h3 class="text-lg font-bold text-brand-text mb-2">Trackeamento avançado</h3>
+        <p class="text-sm font-normal text-brand-muted">Monitore a jornada do consumidor com precisão de pixels nativos.</p>
+      </div>
+
+      <!-- Recuperação -->
+      <div class="md:col-span-4 border border-brand-border rounded-xl bg-white p-6 md:p-8">
+        <img alt="Recuperação" class="w-full h-auto max-h-[295px] mb-6 rounded-lg object-contain" src="ARQUIVOS/imgi_32_image.webp" onerror="this.src='https://placehold.co/400x300/f0f0f0/444'"/>
+        <h3 class="text-lg font-bold text-brand-text mb-2">Recuperação de Carrinho</h3>
+        <p class="text-sm font-normal text-brand-muted">Traga de volta quem quase comprou via E-mail, SMS e WhatsApp integrados.</p>
+      </div>
+
+      <div class="md:col-span-12 flex justify-center mt-6">
+        <a class="w-full text-base text-black bg-brand-green md:max-w-[200px] h-12 flex items-center justify-center rounded font-bold hover:brightness-110 transition-all duration-300 shadow-[0_4px_20px_-5px_rgba(107,255,71,0.6)]" href="#">Criar conta grátis</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LOGOS INTEGRAÇÕES -->
+  <div class="py-16 bg-white overflow-hidden border-t border-brand-border">
+    <div class="flex flex-col gap-4 w-full md:max-w-3xl mx-auto mb-12 text-center">
+      <span class="text-xs bg-[rgba(107,255,71,0.2)] text-[#2d7d19] px-4 py-2 rounded-full font-bold w-fit mx-auto border border-[rgba(107,255,71,0.5)] uppercase">Integrações</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-text">Conecte com ferramentas que você já utiliza</h2>
+    </div>
+
+    <!-- Primeira Linha (Esquerda) -->
+    <div class="flex overflow-hidden mb-4">
+      <div class="animate-marquee gap-4 flex pl-4">
+        <!-- set 1 -->
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_33_1.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_34_2.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_35_3.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_36_4.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_37_5.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_38_6.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_39_7.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_40_8.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_41_9.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_42_10.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_43_11.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_44_12.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_45_13.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        
+        <!-- set 2 -->
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_33_1.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_34_2.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_35_3.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_36_4.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_37_5.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_38_6.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_39_7.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_40_8.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_41_9.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_42_10.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_43_11.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_44_12.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_45_13.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+
+        <!-- set 3 -->
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_33_1.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_34_2.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_35_3.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_36_4.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_37_5.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_38_6.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_39_7.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_40_8.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_41_9.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_42_10.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_43_11.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_44_12.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_45_13.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+
+        <!-- set 4 -->
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_33_1.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_34_2.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_35_3.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_36_4.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_37_5.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_38_6.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_39_7.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_40_8.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_41_9.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_42_10.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_43_11.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_44_12.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_45_13.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+      </div>
+    </div>
+    
+    <!-- Segunda Linha (Direita) -->
+    <div class="flex overflow-hidden">
+      <div class="animate-marquee-reverse gap-4 flex pl-4">
+        <!-- set 1 (shuffled) -->
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_39_7.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_40_8.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_41_9.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_42_10.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_43_11.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_44_12.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_45_13.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_33_1.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_34_2.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_35_3.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_36_4.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_37_5.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_38_6.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        
+        <!-- set 2 -->
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_39_7.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_40_8.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_41_9.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_42_10.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_43_11.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_44_12.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_45_13.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_33_1.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_34_2.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_35_3.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_36_4.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_37_5.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_38_6.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+
+        <!-- set 3 -->
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_39_7.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_40_8.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_41_9.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_42_10.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_43_11.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_44_12.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_45_13.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_33_1.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_34_2.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_35_3.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_36_4.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_37_5.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_38_6.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+
+        <!-- set 4 -->
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_39_7.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_40_8.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_41_9.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_42_10.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_43_11.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_44_12.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_45_13.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_33_1.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_34_2.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_35_3.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_36_4.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_37_5.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+        <div class="w-16 h-16 bg-brand-card border border-brand-border rounded-xl flex items-center justify-center flex-shrink-0"><img src="ARQUIVOS/imgi_38_6.svg" class="w-8 h-8 object-contain" onerror="this.style.display='none'"/></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEENDI PAY -->
+  <div class="bg-[#FCFCFD] py-14 md:py-24 border-y border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        
+        <!-- Mobile Mockup Left -->
+        <div class="md:col-span-5 relative hidden md:flex items-center justify-center p-6">
+          <style>
+            .animate-slide-up-fade {
+              animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            @keyframes slideUpFade {
+              to { opacity: 1; transform: translateY(0); }
+            }
+          </style>
+
+          <!-- Floating decorative elements behind phone -->
+          <div class="absolute top-0 left-0 w-24 h-24 border-t-4 border-l-4 border-brand-green rounded-tl-3xl opacity-50 z-0"></div>
+          <div class="absolute bottom-10 right-0 w-48 h-48 bg-[rgba(107,255,71,0.1)] rounded-xl z-0"></div>
+
+          <!-- Phone Chassis -->
+          <div class="w-full max-w-[300px] h-[600px] bg-brand-green rounded-[40px] shadow-2xl relative overflow-hidden border-[8px] border-white z-10 flex flex-col">
+            
+            <!-- Notch -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-white rounded-b-xl z-20"></div>
+
+            <!-- Top Section (Green) -->
+            <div class="pt-12 px-6 pb-6 flex-shrink-0 flex flex-col">
+              <!-- Header -->
+              <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center gap-2">
+                  <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center text-brand-green font-bold text-xs">b</div>
+                  <span class="font-semibold text-black text-sm">Olá, Lucas</span>
+                </div>
+                <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center text-black font-bold text-sm shadow-sm">L</div>
+              </div>
+
+              <!-- Main Balance -->
+              <div class="mb-4">
+                <p class="text-xs text-black/70 font-medium mb-1">Saldo total em conta</p>
+                <div class="flex items-center gap-2">
+                  <h3 class="text-2xl font-black text-black tracking-tight">R$ 10.342,00</h3>
+                  <svg class="w-4 h-4 text-black/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"></path></svg>
+                </div>
+              </div>
+
+              <!-- Secondary Balances -->
+              <div class="flex flex-col gap-3">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-1.5">
+                    <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+                    <span class="text-xs text-black/70 font-medium">Saldo a receber</span>
+                  </div>
+                  <span class="text-xs font-bold text-black">R$ 5.588,90</span>
+                </div>
+                
+                <div class="flex items-center justify-between">
+                  <div class="flex flex-col gap-1">
+                    <div class="flex items-center gap-1.5">
+                      <div class="w-2 h-2 rounded-full bg-white"></div>
+                      <span class="text-xs text-black/70 font-medium">Disponível para saque</span>
+                    </div>
+                    <span class="text-sm font-bold text-black">R$ 3.342,00</span>
+                  </div>
+                  <button class="bg-black text-white text-[10px] font-bold px-3 py-2 rounded-lg shadow hover:bg-gray-800 transition-colors">Solicitar saque</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Section (White Card) -->
+            <div class="flex-1 bg-white rounded-t-3xl p-5 overflow-hidden flex flex-col shadow-[0_-10px_20px_-5px_rgba(0,0,0,0.1)] z-10 relative">
+              <h4 class="font-bold text-brand-text text-sm mb-4">Últimas transações</h4>
+              
+              <!-- Transaction List -->
+              <div class="flex flex-col gap-3 overflow-y-auto pb-4 scrollbar-hide">
+                
+                <!-- Transaction Item 1 -->
+                <div class="border border-gray-100 rounded-xl p-3 flex items-center justify-between shadow-sm animate-slide-up-fade" style="animation-delay: 0.1s">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 font-bold">$</div>
+                    <div class="flex flex-col gap-1.5">
+                      <div class="w-16 h-2 bg-gray-200 rounded-full"></div>
+                      <div class="w-10 h-2 bg-gray-100 rounded-full"></div>
+                    </div>
+                  </div>
+                  <div class="flex flex-col items-end gap-1">
+                    <span class="text-[9px] font-bold bg-orange-100 text-orange-600 px-2 py-0.5 rounded">Pendente</span>
+                    <span class="text-xs font-bold text-brand-text">R$ 24.400,50</span>
+                  </div>
+                </div>
+
+                <!-- Transaction Item 2 -->
+                <div class="border border-gray-100 rounded-xl p-3 flex items-center justify-between shadow-sm animate-slide-up-fade" style="animation-delay: 0.2s">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 font-bold">$</div>
+                    <div class="flex flex-col gap-1.5">
+                      <div class="w-16 h-2 bg-gray-200 rounded-full"></div>
+                      <div class="w-10 h-2 bg-gray-100 rounded-full"></div>
+                    </div>
+                  </div>
+                  <div class="flex flex-col items-end gap-1">
+                    <span class="text-[9px] font-bold bg-green-100 text-green-700 px-2 py-0.5 rounded">Concluído</span>
+                    <span class="text-xs font-bold text-brand-text">R$ 35.000,00</span>
+                  </div>
+                </div>
+
+                <!-- Transaction Item 3 -->
+                <div class="border border-gray-100 rounded-xl p-3 flex items-center justify-between shadow-sm animate-slide-up-fade" style="animation-delay: 0.3s">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 font-bold">$</div>
+                    <div class="flex flex-col gap-1.5">
+                      <div class="w-16 h-2 bg-gray-200 rounded-full"></div>
+                      <div class="w-10 h-2 bg-gray-100 rounded-full"></div>
+                    </div>
+                  </div>
+                  <div class="flex flex-col items-end gap-1">
+                    <span class="text-[9px] font-bold bg-green-100 text-green-700 px-2 py-0.5 rounded">Concluído</span>
+                    <span class="text-xs font-bold text-brand-text">R$ 800.520,89</span>
+                  </div>
+                </div>
+
+                <!-- Transaction Item 4 -->
+                <div class="border border-gray-100 rounded-xl p-3 flex items-center justify-between shadow-sm animate-slide-up-fade" style="animation-delay: 0.4s">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 font-bold">$</div>
+                    <div class="flex flex-col gap-1.5">
+                      <div class="w-16 h-2 bg-gray-200 rounded-full"></div>
+                      <div class="w-10 h-2 bg-gray-100 rounded-full"></div>
+                    </div>
+                  </div>
+                  <div class="flex flex-col items-end gap-1">
+                    <span class="text-[9px] font-bold bg-green-100 text-green-700 px-2 py-0.5 rounded">Concluído</span>
+                    <span class="text-xs font-bold text-brand-text">R$ 15.080,00</span>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Fade out gradient at bottom of scroll -->
+              <div class="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
+            </div>
+            
+          </div>
+        </div>
+
+        <!-- Content Right -->
+        <div class="md:col-span-7 flex flex-col justify-center">
+          <div class="mb-10">
+            <span class="text-xs bg-[rgba(107,255,71,0.2)] text-[#2d7d19] px-4 py-2 rounded-full font-bold w-fit inline-block mb-4 border border-[rgba(107,255,71,0.5)]">BEENDI PAY</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-brand-text mb-4">Receba seu dinheiro em até 2 dias úteis</h2>
+            <p class="font-normal text-base md:text-lg text-brand-muted">Chega de esperar prazos longos ou burocracias. Tenha previsibilidade financeira e fluxo de caixa com saques rápidos e descomplicados.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 border border-brand-border rounded-xl overflow-hidden bg-white">
+            <div class="p-6 md:p-8 border-b md:border-r border-brand-border">
+              <img alt="Ícone" width="40" class="mb-4" src="ARQUIVOS/imgi_48_saque.svg" onerror="this.style.display='none'"/>
+              <h4 class="text-lg font-bold text-brand-text mb-2">Saque ágil e eficiente</h4>
+              <p class="text-sm text-brand-muted">Saques realizados com agilidade em até 2 dias úteis sem taxas ocultas.</p>
+            </div>
+            <div class="p-6 md:p-8 border-b border-brand-border">
+              <img alt="Ícone" width="40" class="mb-4" src="ARQUIVOS/imgi_49_seguranca.svg" onerror="this.style.display='none'"/>
+              <h4 class="text-lg font-bold text-brand-text mb-2">Segurança total</h4>
+              <p class="text-sm text-brand-muted">Criptografia de ponta e proteção de nível bancário dos seus dados.</p>
+            </div>
+            <div class="p-6 md:p-8 border-b md:border-b-0 md:border-r border-brand-border">
+              <img alt="Ícone" width="40" class="mb-4" src="ARQUIVOS/imgi_50_controle.svg" onerror="this.style.display='none'"/>
+              <h4 class="text-lg font-bold text-brand-text mb-2">Controle total</h4>
+              <p class="text-sm text-brand-muted">Elimine a burocracia e gerencie seu saldo 100% pelo Dashboard.</p>
+            </div>
+            <div class="p-6 md:p-8">
+              <img alt="Ícone" width="40" class="mb-4" src="ARQUIVOS/imgi_51_gerente.svg" onerror="this.style.display='none'"/>
+              <h4 class="text-lg font-bold text-brand-text mb-2">Gerente exclusivo</h4>
+              <p class="text-sm text-brand-muted">Conte com um gerente humano para escalar sua operação via WhatsApp.</p>
+            </div>
+          </div>
+
+          <button class="font-medium h-12 px-4 text-base mt-10 w-full md:w-fit bg-black text-white border border-black hover:bg-gray-800 rounded flex items-center justify-center">Fale com a equipe de vendas</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- DEPOIMENTOS -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-24 pb-16 bg-white">
+    <h2 class="text-3xl md:text-4xl font-bold text-brand-text mb-4 text-left">O que dizem nossos clientes e <br/> parceiros sobre a Beendi</h2>
+    <p class="font-normal text-base md:text-lg text-brand-muted mb-12">Nossos clientes vendem mais e se preocupam menos com burocracia.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+      <!-- Left side stats -->
+      <div class="md:col-span-4">
+        <span class="text-xs bg-[rgba(107,255,71,0.2)] text-[#2d7d19] px-4 py-2 rounded-full font-bold inline-block mb-6 border border-[rgba(107,255,71,0.5)]">VEM SER BEENDI VOCÊ TAMBÉM!</span>
+        <h2 class="text-4xl md:text-5xl font-black text-brand-text mb-2">+2.000</h2>
+        <h4 class="text-2xl md:text-3xl font-bold text-brand-text mb-4">e-commerces</h4>
+        <p class="text-base text-brand-muted mb-8">já tem a Beendi como Gateway e Checkout para pagamentos.</p>
+        <a class="w-full text-base text-black bg-brand-green md:max-w-[200px] h-12 flex items-center justify-center rounded font-bold hover:brightness-110 transition-colors shadow-[0_4px_20px_-5px_rgba(107,255,71,0.6)]" href="#">Criar conta grátis</a>
+      </div>
+
+      <!-- Testimonial Cards Right -->
+      <div class="md:col-span-8 overflow-x-auto scrollbar-hide flex gap-6 pb-4">
+        
+        <!-- Card 1 -->
+        <div class="border border-brand-border bg-white rounded-xl p-8 min-w-[320px] w-[350px] flex-shrink-0 flex flex-col justify-between">
+          <div>
+            <p class="text-sm text-brand-muted mb-6">Migrar pra Beendi foi uma das melhores decisões que tomei. Meu checkout anterior era lento e confuso. Com a Beendi, percebi a diferença já nos primeiros dias: mais velocidade, menos abandono e suporte que responde de verdade. Hoje meu faturamento agradece!</p>
+          </div>
+          <div class="p-3 bg-[#fff9e6] rounded-md mt-4">
+            <h3 class="text-lg font-bold text-brand-text text-center">Camila Rocha</h3>
+            <p class="text-sm font-normal text-brand-muted text-center"><strong class="text-brand-text">+1 milhão</strong> faturados com a Beendi</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="border border-brand-border bg-white rounded-xl p-8 min-w-[320px] w-[350px] flex-shrink-0 flex flex-col justify-between">
+          <div>
+            <p class="text-sm text-brand-muted mb-6">Eu achava que trocar de gateway seria um pesadelo, mas a Beendi facilitou tudo. A integração foi super simples, e o time técnico me acompanhou em cada etapa. O sistema é estável, confiável e os dados são claros.</p>
+          </div>
+          <div class="p-3 bg-[#fff9e6] rounded-md mt-4">
+            <h3 class="text-lg font-bold text-brand-text text-center">Leonardo Martins</h3>
+            <p class="text-sm font-normal text-brand-muted text-center"><strong class="text-brand-text">+5 milhões</strong> faturados com a Beendi</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SUPORTE E DÚVIDAS -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-white border-t border-brand-border">
+    <div class="flex flex-col gap-4 w-full md:max-w-3xl mx-auto mb-12 text-center">
+      <span class="text-xs bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-bold w-fit mx-auto border border-gray-200">SUPORTE</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-text">Dúvidas comuns que recebemos com frequência</h2>
+    </div>
+    <div class="max-w-3xl mx-auto space-y-4">
+      <div class="border border-brand-border rounded-lg p-4 bg-gray-50">
+        <h4 class="font-bold text-brand-text mb-2">Como funciona a integração?</h4>
+        <p class="text-brand-muted text-sm">É super simples e feita em poucos cliques via aplicativo nativo nas maiores plataformas do mercado.</p>
+      </div>
+      <div class="border border-brand-border rounded-lg p-4 bg-gray-50">
+        <h4 class="font-bold text-brand-text mb-2">Quanto tempo demora para sacar?</h4>
+        <p class="text-brand-muted text-sm">O saque fica disponível em até 2 dias úteis diretamente na sua conta bancária cadastrada.</p>
+      </div>
+      <div class="border border-brand-border rounded-lg p-4 bg-gray-50">
+        <h4 class="font-bold text-brand-text mb-2">Tem mensalidade?</h4>
+        <p class="text-brand-muted text-sm">Não cobramos mensalidade. Você só paga uma taxa justa por transação aprovada.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#f9f9f9] border-t border-brand-border pt-12 pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Card -->
+      <div class="bg-white rounded-[32px] border border-gray-100 p-8 md:p-12 mb-16 flex flex-col md:flex-row items-center justify-between relative shadow-[0_4px_30px_rgba(0,0,0,0.03)]">
+        
+        <!-- Left: Logo & Social -->
+        <div class="flex flex-col z-10 w-full md:w-1/3 mb-8 md:mb-0">
+          <a href="/" class="mb-4">
+            <svg class="w-10 h-10 shrink-0" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="beendiGradFoot" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#a3e635" />
+                  <stop offset="100%" stop-color="#16a34a" />
+                </linearGradient>
+              </defs>
+              <path d="M 28 15 L 28 70 A 26 26 0 0 0 80 70 A 26 26 0 0 0 40 48" stroke="url(#beendiGradFoot)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="text-black font-black text-3xl tracking-tighter">beendi<span class="font-normal text-[#8dc63f]">checkout</span></span>
+          </a>
+          <p class="text-brand-muted mb-4 font-medium">Acompanhe nossas redes:</p>
+          <div class="flex gap-4">
+            <a href="#" class="w-12 h-12 border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+              <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+            </a>
+            <a href="#" class="w-12 h-12 border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+              <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.924 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" class="w-12 h-12 border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+              <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.498 5.814a3.016 3.016 0 0 0 2.122 2.136C4.495 20.5 12 20.5 12 20.5s7.505 0 9.377-.55a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="#" class="w-12 h-12 border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+              <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Center: Woman Image -->
+        <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 bottom-0 w-[300px] h-full items-end justify-center z-0 pointer-events-none">
+          <div class="w-64 h-[120px] bg-[#e8ffcc] rounded-t-[150px] absolute bottom-0"></div>
+          <img src="ARQUIVOS/sem-fundo.png" class="h-[260px] object-cover relative z-10 drop-shadow-xl" alt="Atendimento Beendi">
+        </div>
+
+        <!-- Right: CTA -->
+        <div class="flex flex-col z-10 w-full md:w-1/3 md:text-right mt-8 md:mt-0 items-start md:items-end">
+          <h3 class="text-xl font-bold text-black mb-2 leading-snug max-w-xs">Seu e-commerce fatura mais de R$200 mil por mês?</h3>
+          <p class="text-brand-muted text-sm mb-4">Seja Beendi e cresça mais ainda conosco</p>
+          <a href="#" class="text-blue-600 hover:text-blue-700 text-sm font-semibold flex items-center gap-2 group">
+            Criar conta agora mesmo <span class="text-lg leading-none group-hover:translate-x-1 transition-transform">&raquo;</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Links Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <!-- Col 1 -->
+        <div class="flex flex-col gap-4">
+          <a href="/" class="font-bold text-brand-text hover:text-brand-green transition-colors">Home</a>
+          <a href="taxas.html" class="font-bold text-brand-text hover:text-brand-green transition-colors">Taxas</a>
+          <a href="somos-beendi.html" class="font-bold text-brand-text hover:text-brand-green transition-colors">Somos Beendi</a>
+          <a href="blog.html" class="font-bold text-brand-text hover:text-brand-green transition-colors">Blog</a>
+          <a href="privacidade.html" class="font-bold text-brand-text hover:text-brand-green transition-colors leading-tight">Política de Privacidade e<br>Termos de Uso</a>
+        </div>
+        
+        <!-- Col 2: Recursos -->
+        <div class="flex flex-col gap-4">
+          <h4 class="font-bold text-black mb-1">Recursos</h4>
+          <span class="text-sm font-bold text-brand-text mt-1">Beendi Pay</span>
+          <a href="index.html#funcionalidades" class="text-sm font-medium text-brand-muted hover:text-black transition-colors">Funcionalidades</a>
+          <a href="index.html#integracoes" class="text-sm font-medium text-brand-muted hover:text-black transition-colors">Integrações</a>
+          <a href="index.html#checkout" class="text-sm font-medium text-brand-muted hover:text-black transition-colors">Checkout 3.1</a>
+          <a href="#" class="text-sm font-medium text-brand-muted hover:text-black transition-colors">Documentação - API</a>
+        </div>
+
+        <!-- Col 3: Ajuda -->
+        <div class="flex flex-col gap-4">
+          <h4 class="font-bold text-black mb-1">Ajuda</h4>
+          <a href="ajuda.html" class="text-sm font-medium text-brand-muted hover:text-black transition-colors">Central de ajuda</a>
+          <a href="index.html#depoimentos" class="text-sm font-medium text-brand-muted hover:text-black transition-colors">Depoimentos</a>
+          <a href="atendimento.html" class="text-sm font-medium text-brand-muted hover:text-black transition-colors">Atendimento</a>
+          <a href="institucional.html" class="text-sm font-medium text-brand-muted hover:text-black transition-colors">Institucional</a>
+        </div>
+
+        <!-- Col 4: Contato -->
+        <div class="flex flex-col gap-5">
+          <h4 class="font-bold text-black mb-1">Contato</h4>
+          
+          <div>
+            <p class="text-sm font-bold text-black mb-1">Proposta e Atendimento</p>
+            <a href="mailto:comercial@beendi.com.br" class="text-sm font-medium text-brand-muted hover:text-black transition-colors">comercial@beendi.com.br</a>
+          </div>
+          
+          <div>
+            <p class="text-sm font-bold text-black mb-1">Ajuda e Soluções</p>
+            <a href="mailto:suporte@beendi.com.br" class="text-sm font-medium text-brand-muted hover:text-black transition-colors">suporte@beendi.com.br</a>
+          </div>
+          
+          <div>
+            <p class="text-sm font-bold text-black mb-1">Formulário de contato</p>
+            <a href="atendimento.html" class="text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors">Entrar em contato</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleView(view) {
+      const checkoutArea = document.getElementById('checkout-area');
+      const dashboardArea = document.getElementById('dashboard-area');
+      const btnCheckout = document.getElementById('btn-checkout');
+      const btnDashboard = document.getElementById('btn-dashboard');
+      
+      const activeBtnClass = "w-full flex h-12 justify-center items-center gap-2 font-bold rounded-full bg-brand-green text-black shadow-[0_2px_13px_-4px_rgba(107,255,71,0.4)] transition-all";
+      const inactiveBtnClass = "w-full flex h-12 justify-center items-center gap-2 font-semibold rounded-full text-brand-muted hover:bg-gray-50 transition-all";
+
+      if(view === 'checkout') {
+        checkoutArea.classList.remove('hidden');
+        dashboardArea.classList.add('hidden');
+        btnCheckout.className = activeBtnClass;
+        btnDashboard.className = inactiveBtnClass;
+      } else {
+        checkoutArea.classList.add('hidden');
+        dashboardArea.classList.remove('hidden');
+        btnCheckout.className = inactiveBtnClass;
+        btnDashboard.className = activeBtnClass;
+      }
+    }
+
+    function changeCheckout(btn, niche) {
+      const themes = {
+        'saude': {
+          color: '#2d7d19',
+          title: 'Whey Protein Isolado',
+          price: 'R$ 149,90',
+          badge: 'SAÚDE',
+          img: 'ARQUIVOS/imgi_14_image.webp'
+        },
+        'moda': {
+          color: '#000000',
+          title: 'Tênis Running Comfort Premium',
+          price: 'R$ 289,90',
+          badge: 'MODA',
+          img: 'ARQUIVOS/imgi_21_image.webp'
+        },
+        'cursos': {
+          color: '#2563eb',
+          title: 'Curso de Marketing Digital 2.0',
+          price: 'R$ 497,00',
+          badge: 'INFO',
+          img: 'ARQUIVOS/imgi_46_image.webp'
+        },
+        'beleza': {
+          color: '#db2777',
+          title: 'Kit Skincare Rejuvenescedor',
+          price: 'R$ 199,90',
+          badge: 'BELEZA',
+          img: 'ARQUIVOS/imgi_53_image.webp'
+        },
+        'tech': {
+          color: '#4f46e5',
+          title: 'Smartwatch Ultra Pro',
+          price: 'R$ 349,00',
+          badge: 'TECH',
+          img: 'ARQUIVOS/imgi_58_image.webp'
+        }
+      };
+
+      const theme = themes[niche];
+      
+      // Update HTML Elements
+      document.getElementById('mockup-header').style.backgroundColor = theme.color;
+      document.getElementById('mockup-step-bg').style.backgroundColor = theme.color;
+      document.getElementById('mockup-btn').style.backgroundColor = theme.color;
+      
+      document.getElementById('mockup-badge').innerText = theme.badge;
+      document.getElementById('mockup-title').innerText = theme.title;
+      document.getElementById('mockup-price').innerText = theme.price;
+      document.getElementById('mockup-total').innerText = theme.price;
+      
+      const imgElement = document.getElementById('mockup-img');
+      imgElement.style.opacity = '0';
+      setTimeout(() => {
+        imgElement.src = theme.img;
+        imgElement.style.opacity = '1';
+      }, 200);
+
+      // Reset all buttons
+      const buttons = document.querySelectorAll('.checkout-btn');
+      const inactiveClass = "checkout-btn border-b-4 md:border-b-0 md:border-r-4 border-transparent hover:bg-gray-50 w-full py-4 px-6 text-brand-muted font-semibold text-left transition-colors whitespace-nowrap";
+      const activeClass = "checkout-btn border-b-4 md:border-b-0 md:border-r-4 border-brand-green bg-[rgba(107,255,71,0.1)] w-full py-4 px-6 text-brand-text font-semibold text-left whitespace-nowrap";
+      
+      buttons.forEach(b => {
+        b.className = inactiveClass;
+      });
+      
+      // Set active button
+      btn.className = activeClass;
+    }
+  </script>
+</body>
+</html>
