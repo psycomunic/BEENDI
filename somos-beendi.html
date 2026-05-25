@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Somos Beendi | Beendi Checkout</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: '#6BFF47',
+              purple: '#7B2FFF',
+              light: '#ffffff',
+              card: '#f9fafb',
+              cardhover: '#f3f4f6',
+              border: '#e5e7eb',
+              muted: '#4b5563',
+              text: '#111827'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #111827; }
+  </style>
+</head>
+<body class="antialiased selection:bg-brand-green selection:text-black">
+
+  <!-- TOP NAVBAR -->
+  <div class="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto h-16 backdrop-blur-md bg-white/80 border border-gray-200 shadow-[0_4px_30px_rgba(0,0,0,0.05)] rounded-full flex items-center justify-between px-6 transition-all duration-300">
+      <div class="flex items-center justify-between gap-10">
+        <a href="/" class="flex items-center gap-2">
+          <svg class="w-8 h-8 shrink-0" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="beendiGradHead" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#a3e635" />
+                <stop offset="100%" stop-color="#16a34a" />
+              </linearGradient>
+            </defs>
+            <path d="M 28 15 L 28 70 A 26 26 0 0 0 80 70 A 26 26 0 0 0 40 48" stroke="url(#beendiGradHead)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="text-black font-black text-2xl tracking-tighter">beendi<span class="font-normal text-[#8dc63f]">checkout</span></span>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a class="text-sm text-black font-medium hover:opacity-70 transition-opacity" href="/#checkout">Checkout</a>
+          <a class="text-sm text-black font-medium hover:opacity-70 transition-opacity" href="taxas.html">Taxas</a>
+          <a class="text-sm text-black font-medium hover:opacity-70 transition-opacity" href="ajuda.html">Central de ajuda</a>
+        </div>
+      </div>
+      <div class="hidden md:flex items-center gap-4">
+        <a class="text-sm text-black font-semibold min-w-[122px] h-9 flex items-center justify-center rounded-full border border-black hover:bg-black hover:text-white transition-all duration-300" href="#">Fazer login</a>
+        <a class="text-sm text-black bg-brand-green font-bold min-w-[164px] h-9 flex items-center justify-center rounded-full border border-transparent hover:brightness-110 shadow-[0_0_15px_-3px_rgba(107,255,71,0.5)] transition-all duration-300" href="#">Criar conta agora</a>
+      </div>
+      <div class="md:hidden">
+        <img alt="menu" width="23" height="16" class="cursor-pointer" src="ARQUIVOS/imgi_2_mobile.svg" onerror="this.style.display='none'"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <div class="pt-36 pb-20 bg-white border-b border-brand-border relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#f4ffe9] to-white pointer-events-none"></div>
+    <div class="container mx-auto px-4 max-w-5xl text-center relative z-10">
+      <span class="text-xs bg-[rgba(107,255,71,0.2)] text-[#2d7d19] px-4 py-2 rounded-full font-bold inline-block mb-6 border border-[rgba(107,255,71,0.5)] tracking-wide">NOSSA HISTÓRIA</span>
+      <h1 class="text-4xl md:text-6xl font-black tracking-tight text-brand-text mb-6 leading-tight">Muito além de um checkout. <br>Nós somos a <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#2d7d19] to-brand-green">Beendi</span>.</h1>
+      <p class="text-lg md:text-xl text-brand-muted mb-10 max-w-3xl mx-auto leading-relaxed">
+        Nascemos para resolver o maior gargalo dos e-commerces brasileiros: o abandono de carrinho. Nossa missão é entregar a tecnologia mais robusta de pagamentos com uma interface fluida que maximiza cada conversão.
+      </p>
+    </div>
+  </div>
+
+  <!-- NUMBERS -->
+  <div class="py-20 bg-white border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-gray-200">
+        <div class="pt-8 md:pt-0">
+          <p class="text-5xl font-black text-brand-text mb-2">R$ 5B+</p>
+          <p class="text-brand-muted font-medium">Transacionados anualmente</p>
+        </div>
+        <div class="pt-8 md:pt-0">
+          <p class="text-5xl font-black text-brand-text mb-2">99,8%</p>
+          <p class="text-brand-muted font-medium">Uptime da plataforma</p>
+        </div>
+        <div class="pt-8 md:pt-0">
+          <p class="text-5xl font-black text-brand-text mb-2">12.000+</p>
+          <p class="text-brand-muted font-medium">Lojistas ativos</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MISSION & VISION -->
+  <div class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row gap-16 items-center">
+        <div class="w-full md:w-1/2">
+          <img src="ARQUIVOS/imgi_68_image.webp" class="rounded-3xl shadow-xl w-full object-cover" alt="Equipe Beendi" onerror="this.src='https://placehold.co/600x400/eeeeee/cccccc?text=Equipe+Beendi'">
+        </div>
+        <div class="w-full md:w-1/2 flex flex-col gap-8">
+          <div>
+            <h3 class="text-3xl font-black text-brand-text mb-4">A tecnologia ao lado do empreendedor</h3>
+            <p class="text-brand-muted text-lg leading-relaxed">
+              Sabemos o quão difícil é levar um cliente até a página de pagamento. Quando ele chega lá, nenhuma falha sistêmica ou tela confusa deveria impedi-lo de comprar. É por isso que construímos nosso próprio gateway, nosso próprio antifraude com IA e nosso checkout transparente de alta velocidade.
+            </p>
+          </div>
+          <div class="p-6 bg-white border border-gray-100 rounded-2xl shadow-sm border-l-4 border-l-brand-green">
+            <h4 class="text-xl font-bold text-brand-text mb-2">Nossa Missão</h4>
+            <p class="text-brand-muted">Democratizar o acesso à tecnologia financeira de alta performance para operações de todos os tamanhos, permitindo que você foque apenas no que importa: vender mais.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#f9f9f9] border-t border-brand-border pt-12 pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Card -->
+      <div class="bg-white rounded-[32px] border border-gray-100 p-8 md:p-12 mb-16 flex flex-col md:flex-row items-center justify-between relative shadow-[0_4px_30px_rgba(0,0,0,0.03)]">
+        
+        <!-- Left: Logo & Social -->
+        <div class="flex flex-col z-10 w-full md:w-1/3 mb-8 md:mb-0">
+          <a href="/" class="mb-4">
+            <svg class="w-10 h-10 shrink-0" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="beendiGradFoot" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#a3e635" />
+                  <stop offset="100%" stop-color="#16a34a" />
+                </linearGradient>
+              </defs>
+              <path d="M 28 15 L 28 70 A 26 26 0 0 0 80 70 A 26 26 0 0 0 40 48" stroke="url(#beendiGradFoot)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="text-black font-black text-3xl tracking-tighter">beendi<span class="font-normal text-[#8dc63f]">checkout</span></span>
+          </a>
+          <p class="text-brand-muted mb-4 font-medium">Acompanhe nossas redes:</p>
+          <div class="flex gap-4">
+            <a href="#" class="w-12 h-12 border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+              <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+            </a>
+            <a href="#" class="w-12 h-12 border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+              <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.924 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" class="w-12 h-12 border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+              <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.498 5.814a3.016 3.016 0 0 0 2.122 2.136C4.495 20.5 12 20.5 12 20.5s7.505 0 9.377-.55a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="#" class="w-12 h-12 border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+              <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Center: Woman Image -->
+        <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 bottom-0 w-[300px] h-full items-end justify-center z-0 pointer-events-none">
+          <div class="w-64 h-[120px] bg-[#e8ffcc] rounded-t-[150px] absolute bottom-0"></div>
+          <img src="ARQUIVOS/sem-fundo.png" class="h-[260px] object-cover relative z-10 drop-shadow-xl" alt="Atendimento Beendi">
+        </div>
+
+        <!-- Right: CTA -->
+        <div class="flex flex-col z-10 w-full md:w-1/3 md:text-right mt-8 md:mt-0 items-start md:items-end">
+          <h3 class="text-xl font-bold text-black mb-2 leading-snug max-w-xs">Seu e-commerce fatura mais de R$200 mil por mês?</h3>
+          <p class="text-brand-muted text-sm mb-4">Seja Beendi e cresça mais ainda conosco</p>
+          <a href="#" class="text-blue-600 hover:text-blue-700 text-sm font-semibold flex items-center gap-2 group">
+            Criar conta agora mesmo <span class="text-lg leading-none group-hover:translate-x-1 transition-transform">&raquo;</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Links Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <!-- Col 1 -->
+        <div class="flex flex-col gap-4">
+          <a href="/" class="font-bold text-brand-text hover:text-brand-green transition-colors">Home</a>
+          <a href="taxas.html" class="font-bold text-brand-text hover:text-brand-green transition-colors">Taxas</a>
+          <a href="somos-beendi.html" class="font-bold text-brand-text hover:text-brand-green transition-colors">Somos Beendi</a>
+          <a href="blog.html" class="font-bold text-brand-text hover:text-brand-green transition-colors">Blog</a>
+          <a href="privacidade.html" class="font-bold text-brand-text hover:text-brand-green transition-colors leading-tight">Política de Privacidade e<br>Termos de Uso</a>
+        </div>
+        
+        <!-- Col 2: Recursos -->
+        <div class="flex flex-col gap-4">
+          <h4 class="font-bold text-black mb-1">Recursos</h4>
+          <span class="text-sm font-bold text-brand-text mt-1">Beendi Pay</span>
+          <a href="index.html#funcionalidades" class="text-sm font-medium text-brand-muted hover:text-black transition-colors">Funcionalidades</a>
+          <a href="index.html#integracoes" class="text-sm font-medium text-brand-muted hover:text-black transition-colors">Integrações</a>
+          <a href="index.html#checkout" class="text-sm font-medium text-brand-muted hover:text-black transition-colors">Checkout 3.1</a>
+          <a href="#" class="text-sm font-medium text-brand-muted hover:text-black transition-colors">Documentação - API</a>
+        </div>
+
+        <!-- Col 3: Ajuda -->
+        <div class="flex flex-col gap-4">
+          <h4 class="font-bold text-black mb-1">Ajuda</h4>
+          <a href="ajuda.html" class="text-sm font-medium text-brand-muted hover:text-black transition-colors">Central de ajuda</a>
+          <a href="index.html#depoimentos" class="text-sm font-medium text-brand-muted hover:text-black transition-colors">Depoimentos</a>
+          <a href="atendimento.html" class="text-sm font-medium text-brand-muted hover:text-black transition-colors">Atendimento</a>
+          <a href="institucional.html" class="text-sm font-medium text-brand-muted hover:text-black transition-colors">Institucional</a>
+        </div>
+
+        <!-- Col 4: Contato -->
+        <div class="flex flex-col gap-5">
+          <h4 class="font-bold text-black mb-1">Contato</h4>
+          
+          <div>
+            <p class="text-sm font-bold text-black mb-1">Proposta e Atendimento</p>
+            <a href="mailto:comercial@beendi.com.br" class="text-sm font-medium text-brand-muted hover:text-black transition-colors">comercial@beendi.com.br</a>
+          </div>
+          
+          <div>
+            <p class="text-sm font-bold text-black mb-1">Ajuda e Soluções</p>
+            <a href="mailto:suporte@beendi.com.br" class="text-sm font-medium text-brand-muted hover:text-black transition-colors">suporte@beendi.com.br</a>
+          </div>
+          
+          <div>
+            <p class="text-sm font-bold text-black mb-1">Formulário de contato</p>
+            <a href="atendimento.html" class="text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors">Entrar em contato</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
