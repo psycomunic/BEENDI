@@ -315,8 +315,16 @@
             </div>
 
             <!-- Banner Image Section -->
-            <div class="w-full bg-[#e2e4e9] pt-4 pb-2 px-4 flex justify-center">
-                <img id="mockup-promo-banner" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&h=250&q=80" class="w-full object-cover h-28 sm:h-36 rounded-md shadow-sm transition-opacity duration-500" />
+            <div class="w-full bg-[#f4f4f5] pt-4 pb-2 px-4 flex justify-center">
+                <div class="relative w-full h-28 sm:h-36 rounded-md overflow-hidden shadow-sm flex flex-col justify-center px-6">
+                    <img id="mockup-promo-banner" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&h=250&q=80" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500" />
+                    <div class="absolute inset-0 bg-black bg-opacity-40 transition-opacity duration-500"></div>
+                    <div class="relative z-10 text-white flex flex-col items-start w-11/12 sm:w-3/4">
+                        <span id="mockup-banner-badge" class="inline-block px-2 py-0.5 rounded text-[8px] sm:text-[9px] font-bold uppercase mb-1 sm:mb-2 text-white transition-colors duration-500" style="background-color: #2d7d19;">Queima de Estoque</span>
+                        <h2 id="mockup-banner-title" class="text-base sm:text-2xl font-black leading-tight uppercase tracking-wide drop-shadow-md">15% OFF EM SUPLEMENTOS</h2>
+                        <p id="mockup-banner-subtitle" class="text-[9px] sm:text-xs mt-1 font-semibold opacity-95 drop-shadow-md">+ Frete Grátis acima de R$100</p>
+                    </div>
+                </div>
             </div>
 
             <!-- Timer Bar (Dynamic Color) -->
@@ -1577,7 +1585,10 @@
           badge: 'SAÚDE',
           img: 'ARQUIVOS/imgi_14_image.webp',
           storeName: 'NutriMax',
-          bannerImg: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&h=250&q=80'
+          bannerImg: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&h=250&q=80',
+          bannerBadge: 'Queima de Estoque',
+          bannerTitle: '15% OFF EM SUPLEMENTOS',
+          bannerSubtitle: '+ Frete Grátis acima de R$100'
         },
         'moda': {
           color: '#000000',
@@ -1586,7 +1597,10 @@
           badge: 'MODA',
           img: 'ARQUIVOS/imgi_21_image.webp',
           storeName: 'UrbanStyle',
-          bannerImg: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&h=250&q=80'
+          bannerImg: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&h=250&q=80',
+          bannerBadge: 'Nova Coleção',
+          bannerTitle: 'LANÇAMENTOS COM 20% OFF',
+          bannerSubtitle: 'Use o cupom URBAN20 e garanta o seu.'
         },
         'cursos': {
           color: '#2563eb',
@@ -1595,7 +1609,10 @@
           badge: 'INFO',
           img: 'ARQUIVOS/imgi_46_image.webp',
           storeName: 'MestreDigital',
-          bannerImg: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&h=250&q=80'
+          bannerImg: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&h=250&q=80',
+          bannerBadge: 'Black Week',
+          bannerTitle: 'DESCONTO DE 50%',
+          bannerSubtitle: 'Acesso vitalício + 3 Bônus exclusivos.'
         },
         'beleza': {
           color: '#db2777',
@@ -1604,7 +1621,10 @@
           badge: 'BELEZA',
           img: 'ARQUIVOS/imgi_53_image.webp',
           storeName: 'GlowBeauty',
-          bannerImg: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&h=250&q=80'
+          bannerImg: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&h=250&q=80',
+          bannerBadge: 'Especial Mês da Mulher',
+          bannerTitle: 'COMPRE 1 E LEVE 2',
+          bannerSubtitle: 'Na linha completa de Skincare!'
         },
         'tech': {
           color: '#4f46e5',
@@ -1613,7 +1633,10 @@
           badge: 'TECH',
           img: 'ARQUIVOS/imgi_58_image.webp',
           storeName: 'InovaTron',
-          bannerImg: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&h=250&q=80'
+          bannerImg: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&h=250&q=80',
+          bannerBadge: 'Tech Friday',
+          bannerTitle: 'GADGETS COM ATÉ 30% OFF',
+          bannerSubtitle: 'Frete Grátis expresso para todo o Brasil.'
         }
       };
 
@@ -1646,6 +1669,11 @@
         bannerElement.src = theme.bannerImg;
         bannerElement.style.opacity = '1';
       }, 200);
+
+      document.getElementById('mockup-banner-badge').innerText = theme.bannerBadge;
+      document.getElementById('mockup-banner-badge').style.backgroundColor = theme.color;
+      document.getElementById('mockup-banner-title').innerText = theme.bannerTitle;
+      document.getElementById('mockup-banner-subtitle').innerText = theme.bannerSubtitle;
 
       
       const imgElement = document.getElementById('mockup-img');
