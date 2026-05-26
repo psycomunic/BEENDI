@@ -153,7 +153,10 @@
         <div class="md:col-span-6 relative mt-12 md:mt-0 flex justify-center items-end">
           <div class="relative w-full flex justify-center items-end">
             <!-- Hero Principal -->
-            <img alt="Hero Image" class="w-full h-auto max-h-[650px] object-contain object-bottom z-10 drop-shadow-2xl" src="ARQUIVOS/sem-fundo.png" onerror="this.src='https://placehold.co/800x600/f0f0f0/333?text=Hero+Image'"/>
+            <div class="relative w-full flex justify-center items-center z-10" style="mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);">
+              <img alt="Mapa" class="w-full h-auto" src="ARQUIVOS/mapa.svg" />
+              <img alt="Linha" class="absolute inset-0 w-full h-full pointer-events-none" src="ARQUIVOS/linha.svg" />
+            </div>
             
             <!-- Cards Flutuantes Movidos e Redimensionados -->
             <img alt="Card de saldo" class="absolute top-1/4 -left-4 md:-left-12 w-48 xl:w-64 z-20 hidden lg:block drop-shadow-xl" src="ARQUIVOS/imgi_11_card-saldo.svg" onerror="this.style.display='none'"/>
