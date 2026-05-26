@@ -298,59 +298,102 @@
         <!-- Main Preview HTML Mockup -->
         <div class="flex-1 flex flex-col items-center justify-center p-4 md:p-8 bg-gray-50 relative overflow-hidden">
           <!-- The Checkout Window -->
-          <div id="checkout-mockup" class="w-full max-w-2xl bg-white rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] overflow-hidden flex flex-col transition-all duration-500 border border-gray-100 transform hover:scale-[1.02]">
-            <!-- Header -->
-            <div id="mockup-header" class="w-full py-4 px-6 flex justify-between items-center transition-colors duration-500" style="background-color: #2d7d19;">
-              <div class="flex items-center gap-2 text-white">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8V7a4 4 0 00-8 0v4h8z"></path></svg>
-                <span class="font-bold text-sm tracking-wide">PAGAMENTO SEGURO</span>
-              </div>
-              <div id="mockup-badge" class="px-2 py-0.5 bg-white/20 text-white rounded text-xs font-bold uppercase transition-all">SAÚDE</div>
+          <div id="checkout-mockup" class="w-full max-w-3xl bg-[#f4f4f5] rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] overflow-hidden flex flex-col transition-all duration-500 border border-gray-200 transform hover:scale-[1.02]" style="font-family: 'Rubik', sans-serif;">
+            
+            <!-- Header (Black) -->
+            <div class="w-full h-12 bg-black px-4 flex justify-between items-center relative z-10">
+               <div class="flex items-center gap-2">
+                 <div class="w-16 h-4 bg-white/20 rounded-md"></div>
+               </div>
+               <div class="flex items-center gap-1.5 text-white">
+                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8V7a4 4 0 00-8 0v4h8z"></path></svg>
+                 <div class="flex flex-col leading-none">
+                    <span class="text-[8px] font-bold tracking-wider">PAGAMENTO</span>
+                    <span class="text-[8px] font-semibold tracking-wider">100% SEGURO</span>
+                 </div>
+               </div>
+            </div>
+
+            <!-- Timer Bar (Dynamic Color) -->
+            <div id="mockup-header" class="w-full h-8 px-4 flex justify-center items-center gap-2 transition-colors duration-500 text-white relative z-0" style="background-color: #2d7d19;">
+               <span class="text-[10px] font-bold uppercase tracking-wide">Oferta termina em:</span>
+               <span class="bg-white text-gray-900 text-[10px] font-bold px-1.5 py-0.5 rounded border border-gray-200">00:00:00</span>
+               <div id="mockup-badge" class="absolute right-4 px-2 py-0.5 bg-white/20 text-white rounded text-[9px] font-bold uppercase hidden sm:block transition-all">SAÚDE</div>
             </div>
             
-            <div class="flex flex-col sm:flex-row w-full">
+            <div class="flex flex-col sm:flex-row w-full p-4 gap-4">
               <!-- Form Side -->
-              <div class="flex-1 p-6 border-b sm:border-b-0 sm:border-r border-gray-100">
-                <h3 class="text-base font-bold text-gray-800 mb-4 flex items-center gap-2">
-                   <span id="mockup-step-bg" class="w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold transition-colors duration-500" style="background-color: #2d7d19;">1</span> 
-                   Dados Pessoais
-                </h3>
-                <div class="space-y-3">
-                  <div>
-                    <div class="w-full h-10 border border-gray-200 rounded-md bg-gray-50 px-3 flex items-center"><span class="text-xs text-gray-400">Nome completo</span></div>
+              <div class="flex-1 flex flex-col gap-3">
+                <!-- Step 1 -->
+                <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                  <h3 class="text-[13px] font-bold text-gray-800 mb-3 flex items-center gap-1.5">
+                     <span id="mockup-step-bg" class="w-4 h-4 rounded-full flex items-center justify-center text-white text-[9px] font-bold transition-colors duration-500" style="background-color: #2d7d19;">1</span> 
+                     Identificação
+                  </h3>
+                  <div class="space-y-2">
+                    <div class="w-full h-9 border border-gray-200 rounded-lg bg-white px-3 flex items-center"><span class="text-[11px] text-gray-400">Nome completo</span></div>
+                    <div class="w-full h-9 border border-gray-200 rounded-lg bg-white px-3 flex items-center"><span class="text-[11px] text-gray-400">E-mail</span></div>
+                    <div class="grid grid-cols-2 gap-2">
+                      <div class="w-full h-9 border border-gray-200 rounded-lg bg-white px-3 flex items-center"><span class="text-[11px] text-gray-400">CPF/CNPJ</span></div>
+                      <div class="w-full h-9 border border-gray-200 rounded-lg bg-white px-3 flex items-center"><span class="text-[11px] text-gray-400">Celular</span></div>
+                    </div>
+                    <button id="mockup-btn" class="w-full h-10 mt-1 rounded-lg text-white font-bold text-[12px] shadow transition-all duration-500 hover:brightness-110" style="background-color: #2d7d19;">
+                      Ir para Entrega
+                    </button>
                   </div>
-                  <div>
-                    <div class="w-full h-10 border border-gray-200 rounded-md bg-gray-50 px-3 flex items-center"><span class="text-xs text-gray-400">E-mail</span></div>
-                  </div>
-                  <div class="grid grid-cols-2 gap-3">
-                    <div class="w-full h-10 border border-gray-200 rounded-md bg-gray-50 px-3 flex items-center"><span class="text-xs text-gray-400">CPF</span></div>
-                    <div class="w-full h-10 border border-gray-200 rounded-md bg-gray-50 px-3 flex items-center"><span class="text-xs text-gray-400">Celular</span></div>
-                  </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-white p-3 rounded-xl border border-gray-100 shadow-sm flex items-center gap-1.5 opacity-60">
+                   <span class="w-4 h-4 rounded-full flex items-center justify-center bg-gray-400 text-white text-[9px] font-bold">2</span> 
+                   <h3 class="text-[13px] font-bold text-gray-800">Entrega</h3>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-white p-3 rounded-xl border border-gray-100 shadow-sm flex items-center gap-1.5 opacity-60">
+                   <span class="w-4 h-4 rounded-full flex items-center justify-center bg-gray-400 text-white text-[9px] font-bold">3</span> 
+                   <h3 class="text-[13px] font-bold text-gray-800">Pagamento</h3>
                 </div>
               </div>
               
               <!-- Order Summary Side -->
-              <div class="w-full sm:w-[260px] p-6 bg-gray-50 flex flex-col">
-                <h3 class="text-sm font-bold text-gray-800 mb-4 uppercase">Resumo do Pedido</h3>
-                <div class="flex items-center gap-3 mb-6">
-                  <div class="w-14 h-14 bg-white border border-gray-200 rounded flex items-center justify-center overflow-hidden flex-shrink-0">
-                     <img id="mockup-img" src="ARQUIVOS/imgi_14_image.webp" class="w-full h-full object-cover transition-opacity duration-300" onerror="this.src='https://placehold.co/100x100/f0f0f0/333?text=Niche'"/>
+              <div class="w-full sm:w-[240px] flex flex-col gap-3">
+                <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex flex-col">
+                  <div class="flex justify-between items-center mb-3">
+                     <span class="text-[11px] font-bold uppercase text-gray-800 tracking-wide">Resumo</span>
+                     <span class="text-[11px] text-[#2d7d19] font-bold" id="mockup-summary-badge">(1)</span>
                   </div>
-                  <div class="flex-1">
-                    <p id="mockup-title" class="text-xs font-semibold text-gray-800 leading-tight transition-all">Whey Protein Isolado</p>
-                    <p id="mockup-price" class="text-sm font-bold text-gray-600 mt-1 transition-all">R$ 149,90</p>
+
+                  <div class="flex items-start gap-3 pb-3 border-b border-gray-100 border-dashed">
+                    <div class="w-12 h-12 bg-white border border-gray-200 rounded-lg flex items-center justify-center overflow-hidden flex-shrink-0">
+                       <img id="mockup-img" src="ARQUIVOS/imgi_14_image.webp" class="w-full h-full object-cover transition-opacity duration-300" onerror="this.src='https://placehold.co/100x100/f0f0f0/333?text=Niche'"/>
+                    </div>
+                    <div class="flex-1">
+                      <p id="mockup-title" class="text-[11px] font-medium text-gray-800 leading-tight transition-all">Whey Protein Isolado</p>
+                      <p id="mockup-price" class="text-[11px] font-bold text-gray-600 mt-1 transition-all">R$ 149,90</p>
+                    </div>
+                  </div>
+                  
+                  <div class="pt-3">
+                     <div class="flex justify-between items-center">
+                       <span class="text-[11px] font-bold text-gray-500">Total</span>
+                       <span id="mockup-total" class="text-[15px] font-black transition-all" style="color: #2d7d19;">R$ 149,90</span>
+                     </div>
                   </div>
                 </div>
-                
-                <div class="mt-auto border-t border-gray-200 pt-4">
-                   <div class="flex justify-between items-center mb-4">
-                     <span class="text-sm font-bold text-gray-500">Total</span>
-                     <span id="mockup-total" class="text-lg font-black text-gray-900 transition-all">R$ 149,90</span>
+
+                <!-- Order Bump Mockup -->
+                <div class="bg-white p-3 rounded-xl border shadow-sm border-dashed transition-colors duration-500" style="background-color: rgba(45, 125, 25, 0.05); border-color: rgba(45, 125, 25, 0.3);" id="mockup-order-bump-bg">
+                   <div class="flex items-center gap-1.5 mb-2">
+                      <span id="mockup-order-bump-badge" class="px-2 py-0.5 rounded-full text-[8px] font-bold uppercase text-white transition-colors duration-500" style="background-color: #2d7d19;">🎉 Você tem 1 oferta!</span>
                    </div>
-                   <button id="mockup-btn" class="w-full h-12 rounded-md text-white font-bold text-sm shadow-md transition-all duration-500 flex items-center justify-center gap-2 hover:brightness-110" style="background-color: #2d7d19;">
-                     FINALIZAR COMPRA
-                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                   </button>
+                   <div class="flex items-start gap-2">
+                     <div class="w-10 h-10 bg-gray-200 rounded-md"></div>
+                     <div class="flex-1">
+                        <p class="text-[10px] font-medium text-gray-800 leading-tight">Adicionar ao pedido</p>
+                        <p class="text-[11px] font-bold text-gray-600 mt-0.5">R$ 99,90</p>
+                     </div>
+                   </div>
                 </div>
               </div>
             </div>
@@ -1467,6 +1510,21 @@
       }
     }
 
+    function hexToRgb(hex) {
+      // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+      var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+      hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+        return r + r + g + g + b + b;
+      });
+
+      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+      } : { r: 0, g: 0, b: 0 };
+    }
+
     function changeCheckout(btn, niche) {
       const themes = {
         'saude': {
@@ -1513,10 +1571,18 @@
       document.getElementById('mockup-step-bg').style.backgroundColor = theme.color;
       document.getElementById('mockup-btn').style.backgroundColor = theme.color;
       
+      const rgbColor = hexToRgb(theme.color);
+      document.getElementById('mockup-total').style.color = theme.color;
+      document.getElementById('mockup-summary-badge').style.color = theme.color;
+      document.getElementById('mockup-order-bump-badge').style.backgroundColor = theme.color;
+      document.getElementById('mockup-order-bump-bg').style.backgroundColor = `rgba(${rgbColor.r}, ${rgbColor.g}, ${rgbColor.b}, 0.05)`;
+      document.getElementById('mockup-order-bump-bg').style.borderColor = `rgba(${rgbColor.r}, ${rgbColor.g}, ${rgbColor.b}, 0.3)`;
+      
       document.getElementById('mockup-badge').innerText = theme.badge;
       document.getElementById('mockup-title').innerText = theme.title;
       document.getElementById('mockup-price').innerText = theme.price;
       document.getElementById('mockup-total').innerText = theme.price;
+
       
       const imgElement = document.getElementById('mockup-img');
       imgElement.style.opacity = '0';
