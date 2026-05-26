@@ -271,15 +271,6 @@
         <p class="font-normal text-base md:text-lg text-brand-muted">Aceite pagamentos com uma experiência de compra clara, rápida e preparada para vender mais em diferentes mercados</p>
       </div>
 
-      <!-- Toggle Buttons -->
-      <div class="border border-brand-border rounded-full p-2 w-full md:max-w-xl mx-auto flex items-center mb-10 bg-white shadow-sm">
-        <button id="btn-checkout" onclick="toggleView('checkout')" class="w-full flex h-12 justify-center items-center gap-2 font-bold rounded-full bg-brand-green text-black shadow-[0_2px_13px_-4px_rgba(107,255,71,0.4)] transition-all">
-          <img src="ARQUIVOS/imgi_19_checkout.svg" width="20" onerror="this.style.display='none'"/> Checkout Customizado
-        </button>
-        <button id="btn-dashboard" onclick="toggleView('dashboard')" class="w-full flex h-12 justify-center items-center gap-2 font-semibold rounded-full text-brand-muted hover:bg-gray-50 transition-all">
-          <img src="ARQUIVOS/imgi_20_dashboard.svg" width="20" onerror="this.style.display='none'"/> Dashboard Inteligente
-        </button>
-      </div>
 
       <!-- Checkout Preview Area -->
       <div id="checkout-area" class="border border-brand-border rounded-2xl overflow-hidden flex flex-col md:flex-row bg-white shadow-sm transition-opacity duration-300">
@@ -451,11 +442,52 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
-      <!-- Dashboard Preview Area -->
-      <div id="dashboard-area" class="hidden rounded-2xl overflow-hidden flex justify-center items-center w-full shadow-2xl transition-opacity duration-300 border border-gray-200 bg-gray-50 relative mx-auto md:max-w-5xl">
-        <img src="ARQUIVOS/laptop-front.png" class="w-full h-auto object-contain" alt="Dashboard Beendi" />
+  <!-- DASHBOARD INTELIGENTE -->
+  <div id="dashboard" class="bg-[#FCFCFD] py-14 md:py-24 border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        
+        <!-- Content Left -->
+        <div class="md:col-span-5 flex flex-col justify-center">
+          <div class="mb-10">
+            <span class="text-xs bg-[rgba(107,255,71,0.2)] text-[#2d7d19] px-4 py-2 rounded-full font-bold w-fit inline-block mb-4 border border-[rgba(107,255,71,0.5)]">DASHBOARD INTELIGENTE</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-brand-text mb-4">Gerencie seu negócio com precisão</h2>
+            <p class="font-normal text-base md:text-lg text-brand-muted">Acompanhe suas conversões, faturamento e métricas vitais em tempo real. Tenha total controle da sua operação em uma única tela, projetada para quem precisa de velocidade e clareza.</p>
+          </div>
+          
+          <ul class="flex flex-col gap-4">
+            <li class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded bg-[#f4ffe9] text-[#2d7d19] flex items-center justify-center shrink-0 mt-0.5">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+              </div>
+              <div>
+                <h4 class="text-base font-bold text-brand-text">Métricas em tempo real</h4>
+                <p class="text-sm text-brand-muted">Acompanhe vendas e conversões segundo a segundo.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded bg-[#f4ffe9] text-[#2d7d19] flex items-center justify-center shrink-0 mt-0.5">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </div>
+              <div>
+                <h4 class="text-base font-bold text-brand-text">Histórico detalhado</h4>
+                <p class="text-sm text-brand-muted">Filtre por datas, produtos ou métodos de pagamento.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Laptop Mockup Right -->
+        <div class="md:col-span-7 relative flex items-center justify-center p-0 lg:ml-12 mt-12 md:mt-0">
+          <img src="ARQUIVOS/laptop-front.png" class="w-[110%] max-w-[850px] h-auto object-contain z-10 drop-shadow-[0_20px_50px_rgba(0,0,0,0.15)] hover:scale-105 transition-transform duration-700 relative" alt="Dashboard Inteligente Beendi" />
+        </div>
+
       </div>
+    </div>
+  </div>
 
   <!-- RECURSOS INTELIGENTES (FEATURES) -->
   <div id="funcionalidades" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-24 pb-16 bg-white">
