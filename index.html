@@ -300,23 +300,23 @@
           <!-- The Checkout Window -->
           <div id="checkout-mockup" class="w-full max-w-3xl bg-[#f4f4f5] rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] overflow-hidden flex flex-col transition-all duration-500 border border-gray-200 transform hover:scale-[1.02]" style="font-family: 'Rubik', sans-serif;">
             
-            <!-- Thin Banner (Frete Grátis) -->
-            <div id="mockup-top-banner" class="w-full h-7 flex items-center justify-center transition-colors duration-500" style="background-color: rgba(45, 125, 25, 0.1);">
-               <span id="mockup-top-banner-text" class="text-[9px] font-bold uppercase tracking-widest" style="color: #2d7d19;">⚡ Frete Grátis Liberado para todo o Brasil</span>
-            </div>
-
-            <!-- Header (Black) -->
-            <div class="w-full h-12 bg-black px-4 flex justify-between items-center relative z-10">
+            <!-- Header (White) -->
+            <div class="w-full h-14 bg-white px-6 flex justify-between items-center relative z-10 border-b border-gray-100 transition-colors duration-500">
                <div class="flex items-center gap-2">
-                 <div class="w-16 h-4 bg-white/20 rounded-md"></div>
+                 <span id="mockup-store-name" class="font-extrabold text-xl tracking-tighter transition-colors duration-500" style="color: #2d7d19;">NutriMax</span>
                </div>
-               <div class="flex items-center gap-1.5 text-white">
-                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8V7a4 4 0 00-8 0v4h8z"></path></svg>
+               <div class="flex items-center gap-1.5 transition-colors duration-500" id="mockup-secure-text" style="color: #2d7d19;">
+                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8V7a4 4 0 00-8 0v4h8z"></path></svg>
                  <div class="flex flex-col leading-none">
-                    <span class="text-[8px] font-bold tracking-wider">PAGAMENTO</span>
-                    <span class="text-[8px] font-semibold tracking-wider">100% SEGURO</span>
+                    <span class="text-[9px] font-bold tracking-wider">PAGAMENTO</span>
+                    <span class="text-[9px] font-bold tracking-wider">100% SEGURO</span>
                  </div>
                </div>
+            </div>
+
+            <!-- Banner Image Section -->
+            <div class="w-full bg-[#e2e4e9] pt-4 pb-2 px-4 flex justify-center">
+                <img id="mockup-promo-banner" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&h=250&q=80" class="w-full object-cover h-28 sm:h-36 rounded-md shadow-sm transition-opacity duration-500" />
             </div>
 
             <!-- Timer Bar (Dynamic Color) -->
@@ -1575,35 +1575,45 @@
           title: 'Whey Protein Isolado',
           price: 'R$ 149,90',
           badge: 'SAÚDE',
-          img: 'ARQUIVOS/imgi_14_image.webp'
+          img: 'ARQUIVOS/imgi_14_image.webp',
+          storeName: 'NutriMax',
+          bannerImg: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&h=250&q=80'
         },
         'moda': {
           color: '#000000',
           title: 'Tênis Running Comfort Premium',
           price: 'R$ 289,90',
           badge: 'MODA',
-          img: 'ARQUIVOS/imgi_21_image.webp'
+          img: 'ARQUIVOS/imgi_21_image.webp',
+          storeName: 'UrbanStyle',
+          bannerImg: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&h=250&q=80'
         },
         'cursos': {
           color: '#2563eb',
           title: 'Curso de Marketing Digital 2.0',
           price: 'R$ 497,00',
           badge: 'INFO',
-          img: 'ARQUIVOS/imgi_46_image.webp'
+          img: 'ARQUIVOS/imgi_46_image.webp',
+          storeName: 'MestreDigital',
+          bannerImg: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&h=250&q=80'
         },
         'beleza': {
           color: '#db2777',
           title: 'Kit Skincare Rejuvenescedor',
           price: 'R$ 199,90',
           badge: 'BELEZA',
-          img: 'ARQUIVOS/imgi_53_image.webp'
+          img: 'ARQUIVOS/imgi_53_image.webp',
+          storeName: 'GlowBeauty',
+          bannerImg: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&h=250&q=80'
         },
         'tech': {
           color: '#4f46e5',
           title: 'Smartwatch Ultra Pro',
           price: 'R$ 349,00',
           badge: 'TECH',
-          img: 'ARQUIVOS/imgi_58_image.webp'
+          img: 'ARQUIVOS/imgi_58_image.webp',
+          storeName: 'InovaTron',
+          bannerImg: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&h=250&q=80'
         }
       };
 
@@ -1626,8 +1636,16 @@
       document.getElementById('mockup-price').innerText = theme.price;
       document.getElementById('mockup-total').innerText = theme.price;
 
-      document.getElementById('mockup-top-banner-text').style.color = theme.color;
-      document.getElementById('mockup-top-banner').style.backgroundColor = `rgba(${rgbColor.r}, ${rgbColor.g}, ${rgbColor.b}, 0.1)`;
+      document.getElementById('mockup-store-name').innerText = theme.storeName;
+      document.getElementById('mockup-store-name').style.color = theme.color;
+      document.getElementById('mockup-secure-text').style.color = theme.color;
+      
+      const bannerElement = document.getElementById('mockup-promo-banner');
+      bannerElement.style.opacity = '0';
+      setTimeout(() => {
+        bannerElement.src = theme.bannerImg;
+        bannerElement.style.opacity = '1';
+      }, 200);
 
       
       const imgElement = document.getElementById('mockup-img');
